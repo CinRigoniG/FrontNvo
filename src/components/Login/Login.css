@@ -1,0 +1,69 @@
+body {
+    background-color: #e8c9e9; /* Color de fondo lila claro */
+    background-image: url('https://wallpaperaccess.com/full/4210834.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajustar imagen para cubrir toda la pantalla */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.login-card {
+    background-color: #f4d0f5; /* Color lila más claro para el card */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 40px; /* Mayor padding para hacer más grande el card */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    width: 400px; /* Aumentar el ancho del card */
+    text-align: center; /* Centrar texto */
+}
+
+.login-title {
+    font-family: 'EB Garamond', serif; /* Fuente para el título */
+    color: #2d3748; /* Color del texto */
+}
+
+.input-group-text {
+    background-color: #b39ddb; /* Color lila suave para los iconos */
+    color: white; /* Color del icono */
+}
+
+.form-control {
+    border-radius: 5px; /* Esquinas redondeadas en los inputs */
+    border: 1px solid #9575cd; /* Borde lila */
+}
+
+.btn-success {
+    background-color: #b39ddb; /* Color para el botón de ingresar */
+    border: none; /* Sin borde */
+}
+
+.btn-success:hover {
+    background-color: #9575cd; /* Color más oscuro al pasar el mouse */
+}
+
+.btn-primary {
+    background-color: #81c784; /* Color azul para el botón de registrarse */
+    border: none; /* Sin borde */
+}
+
+.btn-primary:hover {
+    background-color: #66bb6a; /* Color más oscuro al pasar el mouse */
+}
+
+.validation-message {
+    color: #d32f2f; /* Color rojo para los mensajes de validación */
+    font-weight: bold; /* Negrita para el mensaje */
+}
+
+/* Estilos para el icono del ojo */
+.eye-icon {
+    position: absolute; /* Posicionar el icono en el campo de contraseña */
+    right: 10px; /* Espaciado desde la derecha */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar para centrar verticalmente */
+    font-size: 1.2em; /* Tamaño del icono */
+    color: #2d3748; /* Color del icono */
+}

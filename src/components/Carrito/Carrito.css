@@ -1,0 +1,162 @@
+.cart {
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'EB Garamond', serif; /* Cambiar la fuente para todo el carrito */
+}
+.btn-agregar,
+.btn-descontar,
+.btn-guardar,
+.btn-agregar-producto {
+  margin: 5px; /* Espaciado entre botones */
+  /* Otras propiedades de estilo ya existentes */
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cart-header h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  border-radius: 4px;
+}
+
+.text-danger {
+  color: #c71c24;
+}
+
+.text-green {
+  color: #28a745;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center; /* Alinea verticalmente ícono y texto */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 10px; /* Espacio entre ícono y texto */
+  padding: 10px 0; /* Espaciado interno */
+  border-bottom: 2px solid #f0f0f0; /* Línea de separación */
+  margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.cart-header h2 {
+  font-family: 'EB Garamond', serif; /* Cambiar la fuente */
+  font-size: 18px; /* Ajustar el tamaño del texto */
+  color: #333;
+}
+
+.cart-total {
+  justify-content: center;
+  text-align: center; /* Centrar contenido */
+  margin-top: 20px; /* Separación del contenido superior */
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'EB Garamond', serif;
+}
+
+/* Monto en verde */
+.total-monto {
+  color: #28a745; /* Verde para el total */
+  font-size: 28px; /* Tamaño del monto */
+  margin: 5px 0; /* Margen entre el texto y el monto */
+  font-weight: bold; /* Negrita para resaltar */
+}
+
+.button-container {
+  display: flex; /* Alinea los botones uno al lado del otro */
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.botones-container {
+  display: flex; /* Alinea los botones uno al lado del otro */
+  justify-content: center; /* Centra los botones en el contenedor */
+  gap: 10px; /* Espacio entre los botones */
+  margin: 20px 0; /* Margen superior e inferior para separar de otros elementos */
+}
+
+.btn-cambiar {
+  background-color: transparent; /* Sin fondo */
+  border: 2px solid #000; /* Color de borde inicial */
+  color: #000; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  border-radius: 15px; /* Bordes redondeados */
+  display: flex; /* Para alinear el icono y el texto */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: border-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.btn-cambiar:hover {
+  border-color: #f18d9b; /* Cambia el color del borde al pasar el mouse */
+}
+
+
+/* Ajustes para el botón de cerrar */
+.btn-close {
+  position: absolute; /* Posicionamiento absoluto para colocarlo en la esquina */
+  top: 10px; /* Separación desde la parte superior */
+  left: 10px; /* Separación desde el borde izquierdo */
+  font-size: 32px; /* Aumentar tamaño de la fuente */
+  background: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  color: #333; /* Color del ícono */
+  cursor: pointer; /* Cursor de mano */
+  padding: 5px; /* Espaciado interno */
+  transition: color 0.3s;
+  border-radius: 50%; /* Botón redondeado */
+}
+
+.btn-close:hover {
+  color: #c71c24; /* Cambia a rojo al pasar el mouse */
+}
+
+.btn-guardar {
+  background-color: #98fb98;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  margin-top: 10px;
+}
+
+.btn-guardar:hover {
+  background-color: #87e98e;
+}
+.btn-agregar-producto {
+  background-color: transparent; /* Sin color de fondo */
+  color: #333; /* Color de texto */
+  border: none;
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espaciado interno */
+  margin-top: 10px; /* Margen superior */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+  display: block; /* Para centrar el botón */
+  width: fit-content; /* Ajusta el ancho al contenido */
+  margin-left: auto; /* Centra horizontalmente */
+  margin-right: auto; /* Centra horizontalmente */
+}
+
+.btn-agregar-producto:hover {
+  background-color: #f0f0f0; /* Color de fondo claro al pasar el mouse */
+  color: #333; /* Color de texto */
+}
+

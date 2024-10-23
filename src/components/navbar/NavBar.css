@@ -1,0 +1,194 @@
+/* Estilo para el contenedor del navbar */
+.navbar {
+  background-color: #6d5a9c;
+  /* Lila oscuro */
+  padding: 10px 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* Fija la navbar en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Para que ocupe todo el ancho de la pantalla */
+}
+
+/* Título del Navbar */
+.titulo {
+  color: #e0e0e0;
+  /* Lila claro */
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  /* Tamaño reducido */
+  font-weight: bold;
+  margin-right: 20px;
+  /* Separación del resto del contenido */
+}
+
+/* Links del menú de navegación */
+.navbar-nav .nav-link {
+  color: #e8d6ff;
+  /* Blanco lila */
+  font-size: 14px;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #c5a3ff;
+  /* Lila más intenso */
+}
+
+/* Íconos de FontAwesome */
+.navbar-nav .nav-link svg {
+  font-size: 22px;
+  color: #d8b4ff;
+  /* Color lila pastel */
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover svg {
+  transform: scale(1.2);
+  /* Efecto hover */
+  color: #f1e1ff;
+  /* Lila claro al hacer hover */
+}
+
+/* Botones para sesión */
+.navbar-nav.ms-auto button {
+  background: transparent;
+  border: 1px solid #c5a3ff;
+  color: #f3e9ff;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-left: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-nav.ms-auto button:hover {
+  background-color: #c5a3ff;
+  color: #333;
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 16px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 13px;
+  }
+
+  .navbar-nav .nav-link svg {
+    font-size: 18px;
+  }
+}
+
+.usuario-container {
+  display: flex;
+  /* Usa flexbox para centrar */
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+  margin: 10px 0;
+  /* Espaciado alrededor del contenedor */
+}
+
+.usuario-texto {
+  font-family: 'EB Garamond', serif;
+  /* Aplicar la fuente EB Garamond */
+  font-size: 16px;
+  /* Tamaño de fuente ajustable */
+  color: #f8f7f773;
+  /* Color del texto */
+}
+
+/* Pantallas pequeñas (celulares) */
+@media (max-width: 576px) {
+  .navbar {
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .titulo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-nav.ms-auto {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 12px;
+  }
+
+  .navbar-nav .nav-link svg {
+    font-size: 16px;
+  }
+
+  .navbar-nav.ms-auto button {
+    width: 80%;
+    /* Botones ocupan toda la línea */
+    margin-bottom: 8px;
+  }
+}
+
+/* Botón del ícono del carrito sin bordes */
+.cart-button {
+  background: transparent;
+  /* Sin fondo */
+  border: none;
+  /* Sin bordes */
+  padding: 0;
+  /* Sin padding */
+  cursor: pointer;
+  /* Cambiar el cursor al pasar el mouse */
+  color: #e8d6ff;
+  /* Color del ícono */
+  transition: transform 0.2s ease, color 0.3s ease;
+  /* Transiciones para hover */
+  outline: none;
+  /* Asegúrate de que no haya un borde de enfoque */
+}
+
+.cart-button:hover {
+  color: #f1e1ff;
+  /* Color del ícono al hacer hover */
+  transform: scale(1.1);
+  /* Efecto de zoom al pasar el mouse */
+}
+
+/* Estilo para el ícono del carrito */
+.cart-icon {
+  font-size: 24px;
+  /* Tamaño del ícono */
+}
+
+.cart-button {
+  position: relative;
+  /* Asegúrate de que el contenedor del botón tenga posición relativa */
+}
+
+/* Estilo para el punto rojo */
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  /* Ajusta la posición vertical según sea necesario */
+  right: -10px;
+  /* Ajusta la posición horizontal según sea necesario */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}

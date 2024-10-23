@@ -1,0 +1,14 @@
+.carrito-wrapper {
+    position: fixed; /* Posicionamiento fijo para que se mantenga en su lugar */
+    right: 0; /* Ajusta desde la derecha */
+    top: 0; /* Ajusta desde la parte superior */
+    height: 100%; /* Ocupa toda la altura */
+    width: 300px; /* Ancho fijo para el carrito */
+    display: flex; /* Para centrar el contenido */
+    align-items: flex-start; /* Alinear el contenido al inicio */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 20px; /* Espaciado interior */
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: transform 0.3s ease-in-out; /* Efecto de transición */
+    z-index: 2000;
+  }

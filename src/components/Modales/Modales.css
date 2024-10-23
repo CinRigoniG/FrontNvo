@@ -1,0 +1,53 @@
+/* Modal General */
+.Modal {
+    position: relative;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    margin: 50px auto; /* Centrado y separación desde el top */
+    z-index: 1051;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Header del modal */
+.modal-header-custom {
+    background-color: #a586ba; /* El fondo lila */
+    border-bottom: none; /* Quitar la línea inferior del header */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Body del modal */
+.modal-body-custom {
+    font-size: 16px;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Footer del modal */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* Botones del modal */
+.modal-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.modal-btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
