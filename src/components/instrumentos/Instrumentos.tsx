@@ -4,7 +4,7 @@ import InstrumentoService from "../../services/InstrumentoService";
 import Categoria from "../../entities/Categoria";
 import CategoriaService from "../../services/CategoriaService";
 import './Instrumentos.css';
-import ItemInstrumento from "../itemInstrumento/ItemInstrumento";
+import ItemInstrumento from "../ItemInstrumento/ItemInstrumento";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
 const Instrumentos = () => {

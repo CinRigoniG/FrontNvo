@@ -9,12 +9,13 @@ import Pruebas from "../components/Pruebas/Pruebas"
 import LoaderPage from "../components/LoaderPage/LoaderPage"
 import GrillaInstrumentos from "../components/GrillaInstrumentos/GrillaInstrumentos"
 import GrillaPedidos from "../components/GrillaPedidos/GrillaPedidos"
+import GrillaUsuario from "../components/GrillaUsuarios/GrillaUsuarios"
 
 const AppRoutes = () => {
 
-  const DondeEstamos = lazy(() => import('../components/dondeEstamos/DondeEstamos'));
-  const Instrumentos = lazy(() => import('../components/instrumentos/Instrumentos'));
-  const DetalleInstrumentos = lazy(() => import('../components/detalleInstrumentos/DetalleInstrumentos'));
+  const DondeEstamos = lazy(() => import('../components/DondeEstamos/DondeEstamos'));
+  const Instrumentos = lazy(() => import('../components/Instrumentos/Instrumentos'));
+  const DetalleInstrumentos = lazy(() => import('../components/DetalleInstrumentos/DetalleInstrumentos'));
 
   return (
     <Suspense fallback={<LoaderPage></LoaderPage>}>
@@ -34,6 +35,7 @@ const AppRoutes = () => {
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
           <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />}/>
           <Route path="/grillaPedidos" element={<GrillaPedidos />}/>
+          <Route path="/grillaUsuarios" element={<GrillaUsuario />}/>
         </Route>
       </Routes>
     </Suspense>

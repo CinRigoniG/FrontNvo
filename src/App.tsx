@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/NavBar/Navbar";
 import { UserProvider } from "./context/UserContext";
 import { useState } from "react";
 import { CarritoContextProvider } from "./context/CarritoContext";
