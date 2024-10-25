@@ -15,18 +15,18 @@ const Home = () => {
       <section className="featured-section">
         <h2>Instrumentos Destacados</h2>
         <div className="featured-cards">
-          <div className="card">
-            <FaGuitar className="icon" />
+          <div className="card-home">
+            <FaGuitar className="icon-home" />
             <img src="/images/Guitarra.png" alt="Guitarra" />
             <h3>Guitarra Eléctrica</h3>
           </div>
-          <div className="card">
-            <FaKeyboard className="icon" />
+          <div className="card-home">
+            <FaKeyboard className="icon-home" />
             <img src="/images/Teclado.png" alt="Teclado" />
             <h3>Teclado Profesional</h3>
           </div>
-          <div className="card">
-            <FaDrum className="icon" />
+          <div className="card-home">
+            <FaDrum className="icon-home" />
             <img src="/images/Bateria.png" alt="Batería" />
             <h3>Batería Completa</h3>
           </div>

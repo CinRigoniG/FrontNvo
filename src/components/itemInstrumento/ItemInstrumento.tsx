@@ -47,25 +47,30 @@ function ItemInstrumento(args: InstrumentoParams) {
   };
 
   return (
-    <Col>
-      <Card>
-        <Card.Img
-          variant="top"
-          src={`./images/${args.imagen}`}
-          alt={args.instrumento}
-        />
-        <Card.Body>
-          <Card.Title>{args.instrumento}</Card.Title>
-          <Card.Text>$ {args.precio}</Card.Text>
-          <Card.Text>{costoEnvioText}</Card.Text>
+    <Col xs={12} sm={6} md={4} lg={3} className="tarjeta-item-intrumento">
+      <Card className="tarjeta-item-intrumento">
+        <div className="img-container-item-intrumento">
+          <Card.Img
+            variant="top"
+            src={`./images/${args.imagen}`}
+            alt={args.instrumento}
+            className="img-altura-item-intrumento"
+          />
+        </div>
+        <Card.Body className="altura-cuerpo-item-instrumento">
+          <Card.Title className="card-item-intrumento-title">{args.instrumento}</Card.Title>
+          <Card.Text className="card-item-intrumento-text h1">$ {args.precio}</Card.Text>
+          <Card.Text className="card-item-intrumento-text">{costoEnvioText}</Card.Text>
 
-          <Link to={`/products/detalle/${args.id}`}>
-            Detalles <i className="bi bi-eye"></i>
-          </Link>
+          <div className="icon-container-item-intrumento">
+            <Link to={`/products/detalle/${args.id}`} className="btn-detalle-item-intrumento">
+              Detalles <i className="bi bi-eye"></i>
+            </Link>
+          </div>
           <hr />
-          <div>
-            <Button variant="primary" onClick={handleAddCarrito}>
-              Agregar <i className="bi bi-cart-plus"></i>
+          <div className="boton-container-item-intrumento">
+            <Button variant="primary" onClick={handleAddCarrito} className="btn-agregar-item-intrumento">
+              Agregar <i className="bi bi-cart-plus colorFondoBlanco"></i>
             </Button>
           </div>
         </Card.Body>
@@ -73,12 +78,13 @@ function ItemInstrumento(args: InstrumentoParams) {
 
       {/* Modal de confirmación */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Body>
+        <Modal.Body className="modal-content-item-intrumento">
           <h6>¡Se agregó al carrito!</h6>
         </Modal.Body>
       </Modal>
     </Col>
   );
+
 }
 
 export default ItemInstrumento;

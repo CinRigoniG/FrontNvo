@@ -66,8 +66,8 @@ const Instrumentos = () => {
     return (
         <Row style={{ height: '100vh' }}>
             <Col xs={12}>
-                <Container>
-                    <div>
+                <Container className="container-intrumentos">
+                    <div className="cont-buscar">
                         <Form.Select  
                             value={categoriaSeleccionada !== null ? categoriaSeleccionada : ""} 
                             onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
@@ -79,13 +79,14 @@ const Instrumentos = () => {
                                 </option>
                             ))}
                         </Form.Select>
+    
                         <Form.Control
                             type="text"
                             placeholder="Buscar..."
                             value={busqueda}
                             onChange={(e) => setBusqueda(e.target.value)}
                         />
-
+    
                         <Form.Select 
                             value={orden} 
                             onChange={(e) => setOrden(e.target.value)}
@@ -95,8 +96,8 @@ const Instrumentos = () => {
                             <option value="asc">Menor a Mayor</option>
                         </Form.Select>
                     </div>
-
-                    <Row>
+    
+                    <Row className="container-intrumentos">
                         {instrumentos
                             .filter(filtrarPorCategoria)
                             .filter(filtrarPorBusqueda)

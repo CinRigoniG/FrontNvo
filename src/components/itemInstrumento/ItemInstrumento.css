@@ -1,0 +1,254 @@
+.row-item-intrumento {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20px;
+    /* Añade espacio entre cada tarjeta */
+}
+
+.tarjeta-item-intrumento {
+    width: 100%;
+    max-width: 19rem;
+    background-color: rgb(235, 203, 241);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 600px;
+    /* Asegura la misma altura mínima */
+}
+
+.img-altura-item-intrumento {
+    margin-top: 10px;
+    min-height: 100px;
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    /* Mantén la imagen dentro del contenedor sin distorsionarla */
+}
+
+/* Estilo específico para la imagen del camión */
+.imagen-camion-item-intrumento {
+    width: 30px !important;
+    /* Forza el ancho de la imagen */
+    height: auto !important;
+    /* Mantiene la proporción de la imagen */
+    margin-right: 5px !important;
+    /* Espacio a la derecha de la imagen */
+    display: inline-block;
+    /* Asegúrate de que no influya en el flujo del texto */
+}
+
+.card-item-intrumento-title {
+    text-align: center;
+    /* Centra el texto */
+    font-size: 1rem;
+    /* Ajusta el tamaño de la fuente */
+    margin: 0.5rem 0;
+    /* Espaciado vertical */
+}
+
+.card-item-intrumento-text.h1 {
+    text-align: center;
+    /* Centra el texto */
+    font-size: 1rem;
+    /* Ajusta el tamaño de la fuente */
+    margin: 0.5rem 0;
+    /* Espaciado vertical */
+}
+
+.card-item-intrumento-text {
+    text-align: center;
+    /* Centra el texto */
+    font-size: 0.75rem;
+    /* Ajusta el tamaño de la fuente */
+    margin: 0.5rem 0;
+    /* Espaciado vertical */
+}
+
+
+.altura-cuerpo-item-intrumento {
+    flex-grow: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Espaciado para elementos dentro de la tarjeta */
+.espacio-item-intrumento {
+    padding: 5px;
+}
+
+/* Contenedor para la imagen */
+.img-container-item-intrumento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* Ajusta la altura automáticamente en función del contenido */
+}
+
+/* Contenedor para los iconos */
+.icon-container-item-intrumento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre los iconos */
+    margin-top: 10px;
+}
+
+.card-item-intrumento-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Asegura que el espacio esté distribuido uniformemente */
+}
+
+
+.boton-container-item-intrumento {
+    display: flex;
+    /* Usar flexbox para alinear el botón */
+    justify-content: center;
+    /* Centra el botón horizontalmente */
+    align-items: center;
+    /* Centra el botón verticalmente */
+    height: 60px;
+    /* Ajusta la altura del contenedor según tus necesidades */
+    margin-top: 8px;
+    /* Reduce el margen superior para disminuir el espacio */
+}
+
+.btn-agregar-item-intrumento {
+    background-color: transparent;
+    /* Fondo transparente */
+    color: #4CAF50;
+    /* Texto verde */
+    border: 2px solid #4CAF50;
+    /* Borde verde */
+    padding: 5px 10px;
+    /* Espaciado interno ajustado */
+    text-align: center;
+    /* Centrado del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    display: inline-block;
+    /* Para que tome el tamaño necesario */
+    font-size: 13px;
+    /* Tamaño de fuente */
+    margin-top: 0;
+    /* Elimina el margen superior */
+    border-radius: 25px;
+    /* Bordes más redondeados para un aspecto más suave */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transición suave para cambios de color */
+}
+
+.btn-agregar-item-intrumento:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    /* Color de fondo al pasar el mouse, más claro */
+    color: #388E3C;
+    /* Cambia el color del texto al pasar el mouse */
+}
+
+
+.colorFondoBlanco i {
+    font-size: 2rem;
+    /* Tamaño del icono dentro del botón */
+    color: #853388;
+    /* Color del icono dentro del botón */
+}
+
+/* Estilo para el botón de detalles */
+.btn-detalle-item-intrumento {
+    display: inline-flex;
+    /* Usa flexbox para centrar el contenido */
+    align-items: center;
+    /* Centra verticalmente los elementos dentro del botón */
+    justify-content: center;
+    /* Centra horizontalmente los elementos dentro del botón */
+    padding: 4px 12px;
+    /* Reduce el padding para hacer el botón más angosto */
+    background-color: #a2c2e0;
+    /* Cambia el color de fondo del botón (ejemplo: azul claro) */
+    color: #2d333a;
+    /* Color del texto */
+    border: none;
+    border-radius: 8px;
+    /* Mantiene el radio para redondear el botón */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    font-size: 12px;
+    /* Ajusta el tamaño de fuente del texto dentro del botón */
+    font-weight: bold;
+    /* Negrita para el texto del botón */
+}
+
+.btn-detalle-item-intrumento:hover {
+    background-color: #90b4c9;
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.btn-detalle-item-intrumento i {
+    margin-left: 8px;
+    /* Ajusta el espacio entre el texto y el icono */
+}
+
+.bi-eye {
+    color: #2d333a;
+    /* Color del icono */
+}
+
+.modal-content-item-intrumento {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;
+    height: 10%;
+    background-color: rgba(193, 156, 235, 0.856);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-family: 'EB Garamond', serif;
+    color: #090a09;
+    /* Verde elegante */
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .tarjeta-item-intrumento {
+        width: 100%;
+        /* Ancho completo para pantallas pequeñas */
+        max-width: none;
+        /* Elimina el ancho máximo */
+    }
+
+    .img-altura-item-intrumento {
+        min-height: 80px;
+        max-height: 150px;
+    }
+
+    .altura-cuerpo-item-intrumento {
+        min-height: 200px;
+        height: auto;
+        /* Elimina la altura máxima */
+    }
+
+    .btn-detalle-item-intrumento {
+        font-size: 14px;
+        /* Ajusta el tamaño del texto del botón para pantallas pequeñas */
+        padding: 6px 12px;
+        /* Ajusta el padding del botón */
+    }
+}
