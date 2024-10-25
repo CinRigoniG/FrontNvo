@@ -85,7 +85,7 @@ const GrillaInstrumentos = () => {
             <Row>
                 {usuarioL?.nombreRol === Roles.ADMIN && (
                     <>
-                        <Button href="/formulario/0">
+                        <Button href="/formularioInstrumento/0">
                             Nuevo Instrumento
                         </Button>
                     </>

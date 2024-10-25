@@ -9,6 +9,7 @@ import LoaderPage from "../components/LoaderPage/LoaderPage"
 import GrillaInstrumentos from "../components/Grillas/GrillaInstrumentos"
 import GrillaPedidos from "../components/Grillas/GrillaPedidos"
 import GrillaUsuario from "../components/Grillas/GrillaUsuarios"
+import FormularioInstrumento from "../components/Formularios/FormularioInstrumento"
 
 const AppRoutes = () => {
 
@@ -34,6 +35,7 @@ const AppRoutes = () => {
           <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />}/>
           <Route path="/grillaPedidos" element={<GrillaPedidos />}/>
           <Route path="/grillaUsuarios" element={<GrillaUsuario />}/>
+          <Route path="/formularioInstrumento/:idInstrumento" element={<FormularioInstrumento />}/>
         </Route>
       </Routes>
     </Suspense>
