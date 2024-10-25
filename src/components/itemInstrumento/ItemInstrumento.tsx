@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, Button, Modal, Col, Row } from "react-bootstrap";
+import { Card, Button, Modal, Col } from "react-bootstrap";
 import imagenCamion from "./../../../public/images/camion-removebg-preview.png";
 import Instrumento from "../../entities/Instrumento";
 import { useCarrito } from "../../hooks/useCarrito";
