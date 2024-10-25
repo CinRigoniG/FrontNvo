@@ -65,13 +65,13 @@ const GrillaPedidos = () => {
         <>
             <Row>
                 {usuarioL?.nombreRol === Roles.ADMIN && (
-                    <Button onClick={abrirModal}>
+                    <Button onClick={abrirModal}className="btn-grilla">
                         Generar excel
                     </Button>
                 )}
             </Row>
-            <Table>
-                <thead>
+            <Table className="tabla-grilla">
+                <thead className="grilla">
                     <tr>
                         <th>ID</th>
                         <th>Fecha</th>
@@ -91,19 +91,19 @@ const GrillaPedidos = () => {
                             <td>{pedido.totalPedido}</td>
                             <td>
                                 <Link to={`/detallePedido/${pedido.id}`}>
-                                    <i className="bi bi-eye"></i>
+                                    <i className="bi bi-eye icono-detalle"></i>
                                 </Link>
                             </td>
                             {usuarioL?.nombreRol === Roles.ADMIN && (
                                 <>
                                     <td>
                                         <Link to={`/formularioPedido/${pedido.id}`}>
-                                            <i className="bi bi-pencil"></i>
+                                            <i className="bi bi-pencil icono-editar"></i>
                                         </Link>
                                     </td>
                                     <td>
                                         <i
-                                            className="bi bi-trash"
+                                            className="bi bi-trash icono-borrar"
                                             style={{ cursor: "pointer" }}
                                             onClick={() => abrirModalEliminar(pedido)}
                                         ></i>

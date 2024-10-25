@@ -43,11 +43,11 @@ const GrillaUsuario = () => {
     return (
         <>
             <Row>
-                <Button href="/formularioUsuario/0">Nuevo usuario</Button>
+                <Button href="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Button >
             </Row>
 
-            <Table>
-                <thead>
+            <Table className="tabla-grilla">
+                <thead className="grilla">
                     <tr>
                         <th>Nombre</th>
                         <th>Rol</th>
@@ -62,12 +62,12 @@ const GrillaUsuario = () => {
                             <td>{usuario.nombreRol}</td>
                             <td>
                                 <Link to={`/formularioUsuario/${usuario.id}`}>
-                                    <i className="bi bi-pencil"></i>
+                                    <i className="bi bi-pencil icono-editar"></i>
                                 </Link>
                             </td>
                             <td>
                                 <i
-                                    className="bi bi-trash"
+                                    className="bi bi-trash icono-borrar"
                                     style={{ cursor: "pointer" }}
                                     onClick={() => abrirModalEliminar(usuario)}
                                 ></i>
