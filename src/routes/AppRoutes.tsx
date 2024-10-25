@@ -8,6 +8,7 @@ import { Roles } from "../entities/Roles"
 import Pruebas from "../components/Pruebas/Pruebas"
 import LoaderPage from "../components/LoaderPage/LoaderPage"
 import GrillaInstrumentos from "../components/GrillaInstrumentos/GrillaInstrumentos"
+import GrillaPedidos from "../components/GrillaPedidos/GrillaPedidos"
 
 const AppRoutes = () => {
 
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         {/* Rutas disponibles solo si el usuario es ADMIN */}
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
           <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />}/>
+          <Route path="/grillaPedidos" element={<GrillaPedidos />}/>
         </Route>
       </Routes>
     </Suspense>
