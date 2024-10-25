@@ -1,4 +1,4 @@
-import './Home.css';
+import './PaginaPrincipal.css';
 import { FaGuitar, FaKeyboard, FaDrum } from 'react-icons/fa';
 
 const Home = () => {

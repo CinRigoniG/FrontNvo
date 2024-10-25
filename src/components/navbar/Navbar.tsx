@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
               {usuarioL?.nombreRol === "ADMIN" && (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/grilla">
+                    <Link className="nav-link" to="/grillaInstrumentos">
                       <FontAwesomeIcon icon={faTable} />
                     </Link>
                   </li>
