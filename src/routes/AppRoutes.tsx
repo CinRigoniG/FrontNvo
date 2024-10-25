@@ -5,7 +5,6 @@ import { RutaPrivada } from "../components/ControlAcceso/RutaPrivada"
 import Home from "../components/PaginaPrincipal/PaginaPrincipal"
 import RolUsuario from "../components/ControlAcceso/RolUsuario"
 import { Roles } from "../entities/Roles"
-import Pruebas from "../components/Pruebas/Pruebas"
 import LoaderPage from "../components/LoaderPage/LoaderPage"
 import GrillaInstrumentos from "../components/GrillaInstrumentos/GrillaInstrumentos"
 import GrillaPedidos from "../components/GrillaPedidos/GrillaPedidos"
@@ -20,7 +19,6 @@ const AppRoutes = () => {
   return (
     <Suspense fallback={<LoaderPage></LoaderPage>}>
       <Routes>
-        <Route path="/pruebas" element={<Pruebas />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         {/* Ruta que necesita estar logueado */}
