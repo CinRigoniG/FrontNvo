@@ -42,8 +42,8 @@ const GrillaUsuario = () => {
 
     return (
         <>
-            <Row>
-                <Button href="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Button >
+            <Row style={{ marginLeft: '10px' }}>
+                <Link to="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Link >
             </Row>
 
             <Table className="tabla-grilla" striped bordered hover>

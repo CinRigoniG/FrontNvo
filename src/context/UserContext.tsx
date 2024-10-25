@@ -12,21 +12,21 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [usuarioL, setUsuarioL] = useState<Usuario | null>(null);
 
-    // Leer el usuario de las cookies cuando se cargue el componente
+    // Leer el usuario de las cookies solo al cargar el componente
     useEffect(() => {
         const storedUser = Cookies.get("usuarioL");
         console.log("Valor de storedUser:", storedUser);
         if (storedUser) {
             setUsuarioL(JSON.parse(storedUser));
         }
-    }, [Cookies.get("usuarioL")]);
+    }, []); // Array de dependencias vacío
 
-    // Guardar el usuario en las cookies cada vez que cambie
+    // Guardar o eliminar el usuario en las cookies cada vez que cambie
     useEffect(() => {
         if (usuarioL) {
             Cookies.set("usuarioL", JSON.stringify(usuarioL), { sameSite: "Strict", secure: true });
         } else {
-            Cookies.remove("usuarioL");
+            Cookies.remove("usuarioL"); // Asegura la eliminación al cerrar sesión
         }
     }, [usuarioL]);
 

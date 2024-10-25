@@ -28,8 +28,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
 
   const cerrarSesion = () => {
     setUsuarioL(null);
+    setShowModal(false); // Cierra el modal
     navigate("/login", { replace: true });
   };
+
 
   const handleLogoutClick = () => {
     setShowModal(true);
@@ -88,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
 
               {usuarioL?.nombreRol === "ADMIN" && (
                 <>
-                  
+
                   <li className="nav-item">
                     <Link className="nav-link" to="/grillaInstrumentos">
                       <FontAwesomeIcon icon={faTable} />
