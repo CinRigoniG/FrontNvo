@@ -18,8 +18,8 @@ function App() {
     <UserProvider>
       <CarritoContextProvider>
         <BrowserRouter>
-          <Navbar toggleCarrito={toggleCarrito}  />
-          <AppRoutes />
+          <Navbar toggleCarrito={toggleCarrito}/>
+          <AppRoutes/>
           {carritoVisible && ( // Mostrar el carrito en la parte derecha
             <div className="carrito-wrapper">
               <Carrito toggleCarrito={toggleCarrito} /> {/* Pasar la función correcta aquí */}

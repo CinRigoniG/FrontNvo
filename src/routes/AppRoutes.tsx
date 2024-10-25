@@ -28,6 +28,7 @@ const AppRoutes = () => {
             <Instrumentos />
           </RutaPrivada>
         } />
+        <Route path="/formularioInstrumento/:idInstrumento" element={<FormularioInstrumento />}/>
         <Route path="/products/detalle/:id" element={<DetalleInstrumentos />} />
         <Route path="/DondeEstamos" element={<DondeEstamos />} />
         {/* Rutas disponibles solo si el usuario es ADMIN */}
@@ -35,7 +36,6 @@ const AppRoutes = () => {
           <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />}/>
           <Route path="/grillaPedidos" element={<GrillaPedidos />}/>
           <Route path="/grillaUsuarios" element={<GrillaUsuario />}/>
-          <Route path="/formularioInstrumento/:idInstrumento" element={<FormularioInstrumento />}/>
         </Route>
       </Routes>
     </Suspense>

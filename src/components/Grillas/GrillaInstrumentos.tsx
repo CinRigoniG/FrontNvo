@@ -28,6 +28,7 @@ const GrillaInstrumentos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(usuarioL)
       const instrumentosData = await instrumentoService.getAll(
         url + "instrumento"
       );

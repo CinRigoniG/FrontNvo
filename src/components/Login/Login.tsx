@@ -31,13 +31,16 @@ const Login = () => {
         setTxtValidacion("Ingrese nombre de usuario y clave");
         return;
       }
-
+  
       const users = await usuarioService.getAll(url + "usuario");
       const foundUser = users.find((u) => u.nombre.toLowerCase() === usuario.nombre.toLowerCase());
-
+  
+      console.log("Usuario encontrado:", foundUser); // Debug para verificar el usuario encontrado
+      console.log("Clave ingresada:", sha1.sha1(usuario.clave));
+  
       if (foundUser && sha1.sha1(usuario.clave) === foundUser.clave) {
         setUsuarioL(foundUser);
-        setUsuarioLocal(foundUser);
+        console.log("Usuario logueado:", foundUser); // Debug para verificar que setUsuarioL se ejecute correctamente
         navigate("/", { replace: true });
       } else {
         setTxtValidacion("Usuario o clave incorrectos");
@@ -46,7 +49,7 @@ const Login = () => {
       console.error("Error en el login", error);
     }
   };
-
+  
   const handleRegister = () => {
     navigate("/formularioUsuario/0");
   };

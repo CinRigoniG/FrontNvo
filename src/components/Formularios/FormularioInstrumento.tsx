@@ -5,13 +5,12 @@ import Categoria from "../../entities/Categoria";
 import InstrumentoService from "../../services/InstrumentoService";
 import CategoriaService from "../../services/CategoriaService";
 import { Button, Form, FormControl, FormGroup, FormLabel, Row } from "react-bootstrap";
+import { useUser } from "../../context/UserContext";
 
 const FormularioInstrumento = () => {
-
     const navigate = useNavigate();
     const { idInstrumento = "0" } = useParams();
     const instrumentoId = idInstrumento ? parseInt(idInstrumento, 10) : 0;
-
     const [instrumentoObjeto, setInstrumentoObjeto] = useState<Instrumento>(
         new Instrumento()
     );
@@ -19,9 +18,11 @@ const FormularioInstrumento = () => {
     const [txtValidacion, setTxtValidacion] = useState<string>("");
     const instrumentoService = new InstrumentoService();
     const categoriaService = new CategoriaService();
+    const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto
     const url = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
+        console.log("Usuario logueado:", usuarioL);
         const fetchData = async () => {
             await getCategorias();
             await getInstrumento();
@@ -38,6 +39,7 @@ const FormularioInstrumento = () => {
     };
 
     const getInstrumento = async () => {
+        console.log(usuarioL)
         console.log(idInstrumento);
         if (instrumentoId > 0) {
             try {
@@ -124,7 +126,7 @@ const FormularioInstrumento = () => {
         <>
             <Form>
                 <FormGroup>
-                    <FormLabel htmlFor="txtNombre">Instrumento</FormLabel>
+                    <FormLabel>Instrumento</FormLabel>
                     <FormControl
                         type="text"
                         id="txtNombre"
@@ -139,7 +141,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtMarca">Marca</FormLabel>
+                    <FormLabel>Marca</FormLabel>
                     <FormControl
                         type="text"
                         id="txtMarca"
@@ -154,7 +156,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtPrecio">Precio</FormLabel>
+                    <FormLabel>Precio</FormLabel>
                     <FormControl
                         type="text"
                         id="txtPrecio"
@@ -169,7 +171,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtRubro">Modelo</FormLabel>
+                    <FormLabel>Modelo</FormLabel>
                     <FormControl
                         type="text"
                         id="txtRubro"
@@ -184,7 +186,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtImagen">Imagen</FormLabel>
+                    <FormLabel>Imagen</FormLabel>
                     <FormControl
                         type="text"
                         id="txtImagen"
@@ -199,7 +201,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtDescripcion">Descripción</FormLabel>
+                    <FormLabel>Descripción</FormLabel>
                     <FormControl
                         as="textarea"
                         rows={3}
@@ -215,7 +217,7 @@ const FormularioInstrumento = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtCategoria">Categoría</FormLabel>
+                    <FormLabel>Categoría</FormLabel>
                     <Form.Select
                         id="selectCategoria"
                         value={instrumentoObjeto.categoria?.id || ""}
@@ -243,7 +245,7 @@ const FormularioInstrumento = () => {
                     </Form.Select>
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel htmlFor="txtCostoEnvio">Costo de envío</FormLabel>
+                    <FormLabel>Costo de envío</FormLabel>
                     <FormControl
                         type="text"
                         id="txtCostoEnvio"

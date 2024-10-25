@@ -15,10 +15,11 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Leer el usuario de las cookies cuando se cargue el componente
     useEffect(() => {
         const storedUser = Cookies.get("usuarioL");
+        console.log("Valor de storedUser:", storedUser);
         if (storedUser) {
             setUsuarioL(JSON.parse(storedUser));
         }
-    }, []);
+    }, [Cookies.get("usuarioL")]);
 
     // Guardar el usuario en las cookies cada vez que cambie
     useEffect(() => {

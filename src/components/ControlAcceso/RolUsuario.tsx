@@ -14,7 +14,7 @@ function RolUsuario({ rol }: Props) {
         return <Outlet />;
     } else if (usuarioL) {
         // Si está logueado pero no tiene el rol, redirige a 'grilla'
-        return <Navigate replace to='/grilla' />;
+        return <Navigate replace to='/grillaInstrumentos' />;
     } else {
         // Si no está logueado, redirige a 'login'
         return <Navigate replace to='/login' />;
