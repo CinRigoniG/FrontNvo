@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Usuario from "../../entities/Usuario";
 import UsuarioService from "../../services/UsuarioService";
-import { Button, Row, Table } from "react-bootstrap";
+import { Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 

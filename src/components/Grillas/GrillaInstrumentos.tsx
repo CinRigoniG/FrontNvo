@@ -1,4 +1,4 @@
-import { Form, InputGroup, Table, Image, Button, Row } from "react-bootstrap";
+import { Form, InputGroup, Table, Image, Row } from "react-bootstrap";
 import Instrumento from "../../entities/Instrumento";
 import { useEffect, useState } from "react";
 import Categoria from "../../entities/Categoria";
