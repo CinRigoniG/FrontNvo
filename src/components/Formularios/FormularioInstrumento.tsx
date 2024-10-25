@@ -152,6 +152,9 @@ const FormularioInstrumento = () => {
                         }
                     />
                 </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtPrecio">Precio</FormLabel>
+                </FormGroup>
             </Form>
         </>
     );

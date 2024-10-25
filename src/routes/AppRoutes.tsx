@@ -6,9 +6,9 @@ import Home from "../components/PaginaPrincipal/PaginaPrincipal"
 import RolUsuario from "../components/ControlAcceso/RolUsuario"
 import { Roles } from "../entities/Roles"
 import LoaderPage from "../components/LoaderPage/LoaderPage"
-import GrillaInstrumentos from "../components/GrillaInstrumentos/GrillaInstrumentos"
-import GrillaPedidos from "../components/GrillaPedidos/GrillaPedidos"
-import GrillaUsuario from "../components/GrillaUsuarios/GrillaUsuarios"
+import GrillaInstrumentos from "../components/Grillas/GrillaInstrumentos"
+import GrillaPedidos from "../components/Grillas/GrillaPedidos"
+import GrillaUsuario from "../components/Grillas/GrillaUsuarios"
 
 const AppRoutes = () => {
 
