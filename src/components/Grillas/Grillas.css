@@ -1,0 +1,160 @@
+/* Estilo para el InputGroup */
+.mb-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+}
+
+/* Estilo para el selector */
+.filtro-select {
+    width: 200px; /* Ajusta el ancho según lo necesites */
+    margin-right: 10px; /* Espacio entre el select y el input */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    background-color: #f8f9fa; /* Color de fondo claro */
+}
+
+/* Estilo para el campo de búsqueda */
+.filtro-busqueda {
+    flex: 1; /* Hace que el campo ocupe el espacio restante */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    margin: 10px 10px 10px;
+}
+
+/* Efecto de foco para ambos componentes */
+.filtro-select:focus,
+.filtro-busqueda:focus {
+    border-color: #007BFF; /* Cambia el borde al azul al enfocar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra para resaltar */
+}
+
+
+/* Estilo para centrar el contenido verticalmente */
+.tabla-grilla tbody tr td {
+    vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
+    text-align: center; /* Alinea horizontalmente */
+  }
+
+.grilla{
+    background-color: #637b92; 
+    vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
+    text-align: center; /* Alinea horizontalmente */
+}
+  
+/* Botones */
+.btn-grilla {
+    background-color: #a586ba;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 12px; /* Tamaño más compacto */
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+.btn-grilla:hover {
+    background-color: #8d6d9c; /* Color al pasar el mouse */
+}
+
+
+.row-centrado {
+    
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100%; /* Asegura que tome todo el espacio disponible */
+}
+
+/* Imágenes dentro de las tablas */
+.table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Input group */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input, 
+.input-group select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+/*Iconos*/
+/* Estilo para los iconos de la tabla */
+.icono-detalle,
+.icono-editar,
+.icono-borrar {
+    font-size: 20px; /* Tamaño del icono */
+    transition: transform 0.2s ease, color 0.2s ease; /* Transición suave para efectos hover */
+    margin: 0 5px; /* Espacio entre iconos */
+    color: #333; /* Color por defecto */
+}
+
+/* Estilo para el icono de detalle */
+.icono-detalle {
+    color: #007BFF; /* Azul para detalle */
+}
+
+.icono-detalle:hover {
+    transform: scale(1.1); /* Agranda al pasar el mouse */
+}
+
+/* Estilo para el icono de editar */
+.icono-editar {
+    color: #4CAF50; /* Verde para editar */
+}
+
+.icono-editar:hover {
+    transform: scale(1.1); /* Agranda al pasar el mouse */
+}
+
+/* Estilo para el icono de borrar */
+.icono-borrar {
+    color: #F44336; /* Rojo para borrar */
+}
+
+.icono-borrar:hover {
+    transform: scale(1.1); /* Agranda al pasar el mouse */
+}
+
+
+/* Modal */
+.modal-confirmacion {
+    text-align: center;
+    padding: 20px;
+}
+
+.modal-confirmacion button {
+    margin: 5px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table th, 
+    .table td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .table img {
+        width: 60px;
+        height: 60px;
+    }
+
+    button, .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
