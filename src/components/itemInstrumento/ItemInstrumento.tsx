@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, Button, Modal, Col } from "react-bootstrap";
+import { Card, Button, Modal, Col, Row } from "react-bootstrap";
 import imagenCamion from "./../../../public/images/camion-removebg-preview.png";
 import Instrumento from "../../entities/Instrumento";
 import { useCarrito } from "../../hooks/useCarrito";
@@ -47,42 +47,36 @@ function ItemInstrumento(args: InstrumentoParams) {
   };
 
   return (
-    <Col xs={12} sm={6} md={4} lg={3} className="tarjeta-item-intrumento">
-      <Card className="tarjeta-item-intrumento">
-        <div className="img-container-item-intrumento">
+    <>
+      <Col xs={12} sm={6} md={4} lg={3} className="col-card">
+        <Card style={{ width: '100%' }}>
           <Card.Img
             variant="top"
             src={`./images/${args.imagen}`}
             alt={args.instrumento}
-            className="img-altura-item-intrumento"
-          />
-        </div>
-        <Card.Body className="altura-cuerpo-item-instrumento">
-          <Card.Title className="card-item-intrumento-title">{args.instrumento}</Card.Title>
-          <Card.Text className="card-item-intrumento-text h1">$ {args.precio}</Card.Text>
-          <Card.Text className="card-item-intrumento-text">{costoEnvioText}</Card.Text>
-
-          <div className="icon-container-item-intrumento">
-            <Link to={`/products/detalle/${args.id}`} className="btn-detalle-item-intrumento">
+            className="img-altura-item-intrumento" />
+          <Card.Body className="card-body">
+            <Card.Title>{args.instrumento}</Card.Title>
+            <Card.Text>$ {args.precio}</Card.Text>
+            <Card.Text>{costoEnvioText}</Card.Text>
+            <Link to={`/products/detalle/${args.id}`}>
               Detalles <i className="bi bi-eye"></i>
             </Link>
-          </div>
-          <hr />
-          <div className="boton-container-item-intrumento">
-            <Button variant="primary" onClick={handleAddCarrito} className="btn-agregar-item-intrumento">
-              Agregar <i className="bi bi-cart-plus colorFondoBlanco"></i>
+            <hr />
+            <Button variant="primary" onClick={handleAddCarrito}>
+              Agregar <i className="bi bi-cart-plus"></i>
             </Button>
-          </div>
-        </Card.Body>
-      </Card>
+          </Card.Body>
+        </Card>
+      </Col>
 
-      {/* Modal de confirmación */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Body className="modal-content-item-intrumento">
+        <Modal.Body className="text-center">
           <h6>¡Se agregó al carrito!</h6>
         </Modal.Body>
       </Modal>
-    </Col>
+    </>
+
   );
 
 }

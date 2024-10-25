@@ -5,7 +5,7 @@ import Categoria from "../../entities/Categoria";
 import CategoriaService from "../../services/CategoriaService";
 import './Instrumentos.css';
 import ItemInstrumento from "../ItemInstrumento/ItemInstrumento";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Form, InputGroup, Row } from "react-bootstrap";
 
 const Instrumentos = () => {
     const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
@@ -64,64 +64,59 @@ const Instrumentos = () => {
     };
 
     return (
-        <Row style={{ height: '100vh' }}>
-            <Col xs={12}>
-                <Container className="container-intrumentos">
-                    <div className="cont-buscar">
-                        <Form.Select  
-                            value={categoriaSeleccionada !== null ? categoriaSeleccionada : ""} 
-                            onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
-                        >
-                            <option value="">Mostrar Todos</option>
-                            {categorias.map((categoria) => (
-                                <option key={categoria.id} value={categoria.id}>
-                                    {categoria.denominacion}
-                                </option>
-                            ))}
-                        </Form.Select>
-    
-                        <Form.Control
-                            type="text"
-                            placeholder="Buscar..."
-                            value={busqueda}
-                            onChange={(e) => setBusqueda(e.target.value)}
+        <>
+            <InputGroup className="mb-3">
+                <Form.Select
+                    value={categoriaSeleccionada !== null ? categoriaSeleccionada : ""}
+                    onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
+                >
+                    <option value="">Mostrar Todos</option>
+                    {categorias.map((categoria) => (
+                        <option key={categoria.id} value={categoria.id}>
+                            {categoria.denominacion}
+                        </option>
+                    ))}
+                </Form.Select>
+
+                <Form.Control
+                    type="text"
+                    placeholder="Buscar..."
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                />
+
+                <Form.Select
+                    value={orden}
+                    onChange={(e) => setOrden(e.target.value)}
+                >
+                    <option value="">Ordenar por Precio</option>
+                    <option value="desc">Mayor a Menor</option>
+                    <option value="asc">Menor a Mayor</option>
+                </Form.Select>
+            </InputGroup>
+            <Row className="justify-content-center">
+                {instrumentos
+                    .filter(filtrarPorCategoria)
+                    .filter(filtrarPorBusqueda)
+                    .sort(ordenarInstrumentos)
+                    .map((instrumento, index) => (
+                        <ItemInstrumento
+                            key={index}
+                            instrumentoObject={instrumento}
+                            id={instrumento.id}
+                            instrumento={instrumento.instrumento}
+                            precio={instrumento.precio}
+                            imagen={instrumento.imagen}
+                            descripcion={instrumento.descripcion}
+                            marca={instrumento.marca}
+                            modelo={instrumento.modelo}
+                            costoEnvio={instrumento.costoEnvio}
+                            cantidadVendida={instrumento.cantidadVendida}
+                            initialHayStock={true}
                         />
-    
-                        <Form.Select 
-                            value={orden} 
-                            onChange={(e) => setOrden(e.target.value)}
-                        >
-                            <option value="">Ordenar por Precio</option>
-                            <option value="desc">Mayor a Menor</option>
-                            <option value="asc">Menor a Mayor</option>
-                        </Form.Select>
-                    </div>
-    
-                    <Row className="container-intrumentos">
-                        {instrumentos
-                            .filter(filtrarPorCategoria)
-                            .filter(filtrarPorBusqueda)
-                            .sort(ordenarInstrumentos)
-                            .map((instrumento, index) => (
-                                <ItemInstrumento
-                                    key={index}
-                                    instrumentoObject={instrumento}
-                                    id={instrumento.id}
-                                    instrumento={instrumento.instrumento}
-                                    precio={instrumento.precio}
-                                    imagen={instrumento.imagen}
-                                    descripcion={instrumento.descripcion}
-                                    marca={instrumento.marca}
-                                    modelo={instrumento.modelo}
-                                    costoEnvio={instrumento.costoEnvio}
-                                    cantidadVendida={instrumento.cantidadVendida}
-                                    initialHayStock={true}
-                                />
-                            ))}
-                    </Row>
-                </Container>
-            </Col>
-        </Row>
+                    ))}
+            </Row>
+        </>
     );
 };
 
