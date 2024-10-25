@@ -1,14 +1,12 @@
-body {
-    background-color: #e8c9e9; /* Color de fondo lila claro */
-    background-image: url('https://wallpaperaccess.com/full/4210834.jpg'); /* Imagen de fondo */
-    background-size: cover; /* Ajustar imagen para cubrir toda la pantalla */
-}
 
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #e8c9e9; /* Color de fondo lila claro */
+    background-image: url('https://wallpaperaccess.com/full/4210834.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajustar imagen para cubrir toda la pantalla */
 }
 
 .login-card {

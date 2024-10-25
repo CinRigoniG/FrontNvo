@@ -1,9 +1,8 @@
-import './PaginaPrincipal.css';
-import { FaGuitar, FaKeyboard, FaDrum } from 'react-icons/fa';
+import "./PaginaPrincipal.css";
+import { FaGuitar, FaKeyboard, FaDrum } from "react-icons/fa";
 
 const Home = () => {
   return (
-    
     <div className="home-container">
       <header className="home-header">
         <h1>Bienvenido a MusicShop 🎸</h1>
@@ -34,13 +33,28 @@ const Home = () => {
       </section>
 
       <section className="quotes-section">
-        <div className="quote">“La música es la literatura del corazón.” – Alphonse de Lamartine</div>
-        <div className="quote">“La música es el lenguaje universal de la humanidad.” – Henry Wadsworth Longfellow</div>
-        <div className="quote">“Donde las palabras fallan, la música habla.” – Hans Christian Andersen</div>
-        <div className="quote">“La vida es como la música: debe ser compuesta por cada uno de nosotros.” – William A. Ward</div>
+        <div className="quote">
+          “La música es la literatura del corazón.” – Alphonse de Lamartine
+        </div>
+        <div className="quote">
+          “La música es el lenguaje universal de la humanidad.” – Henry
+          Wadsworth Longfellow
+        </div>
+        <div className="quote">
+          “Donde las palabras fallan, la música habla.” – Hans Christian
+          Andersen
+        </div>
+        <div className="quote">
+          “La vida es como la música: debe ser compuesta por cada uno de
+          nosotros.” – William A. Ward
+        </div>
       </section>
 
-      <h2 className='Frase'>"Tu pasión por la música merece lo mejor. Ven y explora nuestra selección de instrumentos de alta calidad, donde cada compra se convierte en parte de tu historia musical."</h2>
+      <h2 className="Frase">
+        "Tu pasión por la música merece lo mejor. Ven y explora nuestra
+        selección de instrumentos de alta calidad, donde cada compra se
+        convierte en parte de tu historia musical."
+      </h2>
 
       <footer className="home-footer">
         <p>© 2024 MusicShop - Todos los derechos reservados</p>

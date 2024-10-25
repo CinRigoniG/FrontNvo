@@ -1,3 +1,7 @@
+
+body{
+  font-family: "EB Garamond";
+}
 .carrito-wrapper {
     position: fixed; /* Posicionamiento fijo para que se mantenga en su lugar */
     right: 0; /* Ajusta desde la derecha */
