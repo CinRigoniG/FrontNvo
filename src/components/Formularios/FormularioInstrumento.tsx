@@ -4,7 +4,7 @@ import Instrumento from "../../entities/Instrumento";
 import Categoria from "../../entities/Categoria";
 import InstrumentoService from "../../services/InstrumentoService";
 import CategoriaService from "../../services/CategoriaService";
-import { Form, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import { Button, Form, FormControl, FormGroup, FormLabel, Row } from "react-bootstrap";
 
 const FormularioInstrumento = () => {
 
@@ -142,6 +142,7 @@ const FormularioInstrumento = () => {
                     <FormLabel htmlFor="txtMarca">Marca</FormLabel>
                     <FormControl
                         type="text"
+                        id="txtMarca"
                         placeholder="Ingrese la marca"
                         value={instrumentoObjeto.marca || ""}
                         onChange={(e) =>
@@ -154,7 +155,123 @@ const FormularioInstrumento = () => {
                 </FormGroup>
                 <FormGroup>
                     <FormLabel htmlFor="txtPrecio">Precio</FormLabel>
+                    <FormControl
+                        type="text"
+                        id="txtPrecio"
+                        placeholder="Ingrese el precio"
+                        value={instrumentoObjeto.precio || ""}
+                        onChange={(e) =>
+                            setInstrumentoObjeto({
+                                ...instrumentoObjeto,
+                                precio: Number(e.target.value),
+                            })
+                        }
+                    />
                 </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtRubro">Modelo</FormLabel>
+                    <FormControl
+                        type="text"
+                        id="txtRubro"
+                        placeholder="Ingrese el modelo"
+                        value={instrumentoObjeto.modelo || ""}
+                        onChange={(e) =>
+                            setInstrumentoObjeto({
+                                ...instrumentoObjeto,
+                                modelo: e.target.value,
+                            })
+                        }
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtImagen">Imagen</FormLabel>
+                    <FormControl
+                        type="text"
+                        id="txtImagen"
+                        placeholder="Ingrese la imagen"
+                        value={instrumentoObjeto.imagen || ""}
+                        onChange={(e) =>
+                            setInstrumentoObjeto({
+                                ...instrumentoObjeto,
+                                imagen: e.target.value,
+                            })
+                        }
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtDescripcion">Descripción</FormLabel>
+                    <FormControl
+                        as="textarea"
+                        rows={3}
+                        id="txtDescripcion"
+                        placeholder="Ingrese la descripción"
+                        value={instrumentoObjeto.descripcion || ""}
+                        onChange={(e) =>
+                            setInstrumentoObjeto({
+                                ...instrumentoObjeto,
+                                descripcion: e.target.value,
+                            })
+                        }
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtCategoria">Categoría</FormLabel>
+                    <Form.Select
+                        id="selectCategoria"
+                        value={instrumentoObjeto.categoria?.id || ""}
+                        onChange={(e) => {
+                            const categoriaId = parseInt(e.target.value);
+                            const categoriaSeleccionada = categorias.find(
+                                (categoria) => categoria.id === categoriaId
+                            );
+                            if (categoriaSeleccionada) {
+                                setInstrumentoObjeto({
+                                    ...instrumentoObjeto,
+                                    categoria: categoriaSeleccionada,
+                                });
+                            } else {
+                                console.error("No se encontró la categoría seleccionada");
+                            }
+                        }}
+                    >
+                        <option value="">Seleccione una categoría</option>
+                        {categorias.map((categoria) => (
+                            <option key={categoria.id} value={categoria.id}>
+                                {categoria.denominacion}
+                            </option>
+                        ))}
+                    </Form.Select>
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel htmlFor="txtCostoEnvio">Costo de envío</FormLabel>
+                    <FormControl
+                        type="text"
+                        id="txtCostoEnvio"
+                        placeholder="Ingrese el costo de envío"
+                        value={instrumentoObjeto.costoEnvio || ""}
+                        onChange={(e) =>
+                            setInstrumentoObjeto({
+                                ...instrumentoObjeto,
+                                costoEnvio: e.target.value,
+                            })
+                        }
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <p style={{ color: "red" }}>{txtValidacion}</p>
+                </FormGroup>
+                <Row>
+                    <Button
+                        onClick={save}
+                    >
+                        Guardar
+                    </Button>
+                    <Button
+                        onClick={() => navigate("/grillaInstrumentos")}
+                    >
+                        Volver
+                    </Button>
+                </Row>
             </Form>
         </>
     );
