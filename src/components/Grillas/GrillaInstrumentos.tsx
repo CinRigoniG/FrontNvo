@@ -78,9 +78,13 @@ const GrillaInstrumentos = () => {
 
   return (
     <>
-      <InputGroup className="mb-2">
+      <InputGroup
+        className="mb-3"
+        style={{ width: "100%", justifyContent: "center" }}
+      >
         <Form.Select
           onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
+          className="filtro-select"
         >
           <option value="">Mostrar Todos</option>
           {categorias.map((categoria) => (
@@ -94,8 +98,10 @@ const GrillaInstrumentos = () => {
           placeholder="Buscar..."
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
+          className="filtro-busqueda"
         />
       </InputGroup>
+
       <Row className="row-centrado">
         {usuarioL?.nombreRol === Roles.ADMIN && (
           <Button href="/formularioInstrumento/0" className="btn-grilla">
@@ -104,7 +110,7 @@ const GrillaInstrumentos = () => {
         )}
       </Row>
 
-      <Table className="tabla-grilla">
+      <Table className="tabla-grilla" striped bordered hover>
         <thead className="grilla">
           <tr>
             <th>Nombre</th>

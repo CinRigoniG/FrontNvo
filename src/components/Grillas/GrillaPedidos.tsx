@@ -70,7 +70,7 @@ const GrillaPedidos = () => {
                     </Button>
                 )}
             </Row>
-            <Table className="tabla-grilla">
+            <Table className="tabla-grilla" striped bordered hover>
                 <thead className="grilla">
                     <tr>
                         <th>ID</th>

@@ -46,7 +46,7 @@ const GrillaUsuario = () => {
                 <Button href="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Button >
             </Row>
 
-            <Table className="tabla-grilla">
+            <Table className="tabla-grilla" striped bordered hover>
                 <thead className="grilla">
                     <tr>
                         <th>Nombre</th>

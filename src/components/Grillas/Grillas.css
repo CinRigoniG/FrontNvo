@@ -1,3 +1,37 @@
+/* Estilo para el InputGroup */
+.mb-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+}
+
+/* Estilo para el selector */
+.filtro-select {
+    width: 200px; /* Ajusta el ancho según lo necesites */
+    margin-right: 10px; /* Espacio entre el select y el input */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    background-color: #f8f9fa; /* Color de fondo claro */
+}
+
+/* Estilo para el campo de búsqueda */
+.filtro-busqueda {
+    flex: 1; /* Hace que el campo ocupe el espacio restante */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    margin: 10px 10px 10px;
+}
+
+/* Efecto de foco para ambos componentes */
+.filtro-select:focus,
+.filtro-busqueda:focus {
+    border-color: #007BFF; /* Cambia el borde al azul al enfocar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra para resaltar */
+}
+
+
 /* Estilo para centrar el contenido verticalmente */
 .tabla-grilla tbody tr td {
     vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
@@ -5,7 +39,7 @@
   }
 
 .grilla{
-    
+    background-color: #637b92; 
     vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
     text-align: center; /* Alinea horizontalmente */
 }
