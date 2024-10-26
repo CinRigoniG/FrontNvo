@@ -78,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/DondeEstamos">
+                <Link className="nav-link" to="/dondeEstamos">
                   <FontAwesomeIcon icon={faMapMarkedAlt} />
                 </Link>
               </li>
