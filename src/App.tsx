@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
-import Navbar from "./components/NavBar/Navbar";
+import NavbarSistema from "./components/NavBarSistema/NavBarSistema";
 import { UserProvider } from "./context/UserContext";
 import { useState } from "react";
 import { CarritoContextProvider } from "./context/CarritoContext";
@@ -18,7 +18,7 @@ function App() {
     <UserProvider>
       <CarritoContextProvider>
         <BrowserRouter>
-          <Navbar toggleCarrito={toggleCarrito}/>
+          <NavbarSistema toggleCarrito={toggleCarrito}/>
           <AppRoutes/>
           {carritoVisible && ( // Mostrar el carrito en la parte derecha
             <div className="carrito-wrapper">
