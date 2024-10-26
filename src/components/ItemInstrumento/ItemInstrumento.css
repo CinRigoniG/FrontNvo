@@ -1,14 +1,162 @@
+.card-instrumento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(186, 85, 211, 0.2); /* Lila transparente */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto de hover para la tarjeta */
+.card-instrumento:hover {
+    transform: scale(1.05); /* Aumenta ligeramente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+}
+
 .col-card {
     margin: 0 15px; /* Márgenes en los costados */
     margin-bottom: 20px;
 }
 
 .card-body {
-    text-align: center; /* Centra el texto dentro del Card.Body */
+    text-align: center; /* Centra el texto horizontalmente */
+    display: flex;
+    color: #28a745;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    height: 100%; /* Ocupa todo el espacio disponible */
+}
+.envio-gratis {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado horizontal */
+    margin-bottom: 10px; /* Espacio inferior */
+    gap: 8px; /* Espacio entre la imagen y el texto */
 }
 
-.card-title,
-.card-text,
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #6a5acd; /* Color azul violeta */
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #333; /* Color gris oscuro */
+    margin-bottom: 10px;
+}
+
 .btn {
-    margin: 0 auto; /* Asegura que los elementos se alineen al centro */
+    background-color: #4caf50; /* Verde */
+    border-color: #4caf50;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    border-color: #45a049;
+}
+
+.text-success {
+    color: #28a745 !important; /* Verde */
+}
+
+.text-warning {
+    color: #b43a36 !important; /* Amarillo */
+}
+
+.imagen-camion {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    object-fit: contain; /* Asegura que la imagen se vea bien */
+}
+
+/* Estilo del precio */
+.card-precio {
+    font-size: 1.5rem; /* Tamaño más grande */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2e8b57; /* Verde oscuro (puedes cambiar a dorado si prefieres) */
+    transition: color 0.3s ease;
+}
+
+.card-precio:hover {
+    color: #45a049; /* Verde más claro al pasar el mouse */
+}
+
+/* Centrar el contenido de la tarjeta */
+.card-instrumento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Quitar subrayado y centrar el link de "Detalles" */
+.link-detalles {
+    text-decoration: none;
+    font-weight: bold;
+    color: #6a5acd;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.link-detalles:hover {
+    color: #483d8b;
+}
+
+/* Botón de agregar: sin fondo, borde verde */
+.btn-agregar {
+    background-color: transparent;
+    border: 2px solid #28a745; /* Verde */
+    color: #28a745;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Estilo de la sección de envío */
+.envio-gratis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.imagen-camion {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.col-card {
+    margin: 15px;
 }
