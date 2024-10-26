@@ -26,10 +26,10 @@ function ItemInstrumento(args: InstrumentoParams) {
 
   const costoEnvioText =
     args.costoEnvio === "G" ? (
-      <span className="text-success d-flex align-items-center">
+      <div className="envio-gratis">
         <img src={imagenCamion} alt="Envío gratis" className="imagen-camion" />
-        Envío gratis a todo el país
-      </span>
+        <span className="text-success">Envío gratis a todo el país</span>
+      </div>
     ) : (
       <span className="text-warning">
         Costo de Envío Interior de Argentina ${args.costoEnvio}
@@ -49,21 +49,21 @@ function ItemInstrumento(args: InstrumentoParams) {
   return (
     <>
       <Col xs={12} sm={6} md={4} lg={3} className="col-card">
-        <Card style={{ width: '100%' }}>
+        <Card className="card-instrumento">
           <Card.Img
             variant="top"
             src={`./images/${args.imagen}`}
             alt={args.instrumento}
-            className="img-altura-item-intrumento" />
+            className="img-altura-item-intrumento"
+          />
           <Card.Body className="card-body">
             <Card.Title>{args.instrumento}</Card.Title>
-            <Card.Text>$ {args.precio}</Card.Text>
+            <Card.Text className="card-precio">$ {args.precio}</Card.Text>
             <Card.Text>{costoEnvioText}</Card.Text>
-            <Link to={`/products/detalle/${args.id}`}>
+            <Link to={`/products/detalle/${args.id}`} className="link-detalles">
               Detalles <i className="bi bi-eye"></i>
             </Link>
-            <hr />
-            <Button variant="primary" onClick={handleAddCarrito}>
+            <Button className="btn-agregar" onClick={handleAddCarrito}>
               Agregar <i className="bi bi-cart-plus"></i>
             </Button>
           </Card.Body>
@@ -76,9 +76,7 @@ function ItemInstrumento(args: InstrumentoParams) {
         </Modal.Body>
       </Modal>
     </>
-
   );
-
 }
 
 export default ItemInstrumento;
