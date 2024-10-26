@@ -10,7 +10,7 @@ import {
   faUser,
   faList,
 } from "@fortawesome/free-solid-svg-icons";
-import "./NavBar.css";
+import "./NavBarSistema.css";
 import { useUser } from "../../context/UserContext";
 import ModalCierreSesion from "../Modales/ModalCierreSesion";
 import useCart from "../../hooks/useCart";
