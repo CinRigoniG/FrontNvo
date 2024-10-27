@@ -2,21 +2,26 @@ import { useEffect, useState } from "react";
 import Pedido from "../../entities/Pedido";
 import PedidoService from "../../services/PedidoService";
 import { useUser } from "../../context/UserContext";
-import { Button, Row, Table } from "react-bootstrap";
+import { Button, Modal, Row, Table } from "react-bootstrap";
 import { Roles } from "../../entities/Roles";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import ModalFechas from "../Modales/ModalFechas";
+import AfipService from "../../services/Afip/AfipService";
 
 const GrillaPedidos = () => {
 
     const [pedidos, setPedidos] = useState<Pedido[]>([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [modalFacturacion, setModalFacturacion] = useState(false);
     const [pedidoAEliminar, setPedidoAEliminar] = useState<Pedido | null>(null);
+    const [pedidoFacturar, setPedidoFacturar] = useState<Pedido | null>(null);
+    const [facturacionResponse, setFacturacionResponse] = useState<{ cae: string, vencimiento: string } | null>(null);
     const [fechaDesde, setFechaDesde] = useState("");
     const [fechaHasta, setFechaHasta] = useState("");
     const pedidoService = new PedidoService();
+    const afipService = AfipService();
     const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto
 
     const url = import.meta.env.VITE_API_URL;
@@ -61,11 +66,47 @@ const GrillaPedidos = () => {
         }
     };
 
+    const facturar = async () => {
+
+        let total = 0
+
+        if (pedidoFacturar != null) {
+            total = pedidoFacturar?.totalPedido;
+        }
+
+        let iva = total * 0.21
+
+        const datosComprobante = {
+            cuitCliente: 20409378472,
+            ptoVenta: 1,
+            comprobante: 1,
+            concepto: 1,
+            tipoDoc: 80,
+            nroDoc: 33693450239,
+            importeGravado: total,
+            importeIva: iva,
+            importeExentoIva: 0,
+        };
+
+        try {
+            const response = await afipService.generarComprobante(datosComprobante);
+            setFacturacionResponse(response); // Guardamos la respuesta de la facturación
+            setModalFacturacion(true); // Abrimos el modal de facturación
+        } catch (error) {
+            console.error("Error al generar el comprobante", error);
+        }
+    }
+
+    const cerrarModalFacturacion = () => {
+        setModalFacturacion(false);
+        setFacturacionResponse(null);
+    };
+
     return (
         <>
             <Row style={{ marginLeft: '10px' }}>
                 {usuarioL?.nombreRol === Roles.ADMIN && (
-                    <Button onClick={abrirModal}className="btn-grilla">
+                    <Button onClick={abrirModal} className="btn-grilla">
                         Generar excel
                     </Button>
                 )}
@@ -77,6 +118,7 @@ const GrillaPedidos = () => {
                         <th>Fecha</th>
                         <th>Usuario</th>
                         <th>Total pedido</th>
+                        {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
                         {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
                         {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
                         {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
@@ -108,6 +150,16 @@ const GrillaPedidos = () => {
                                             onClick={() => abrirModalEliminar(pedido)}
                                         ></i>
                                     </td>
+                                    <td>
+                                        <Button
+                                            onClick={() => {
+                                                setPedidoFacturar(pedido);
+                                                facturar();
+                                            }}
+                                        >
+                                            Facturar
+                                        </Button>
+                                    </td>
                                 </>
                             )}
                         </tr>
@@ -131,6 +183,26 @@ const GrillaPedidos = () => {
                 setFechaHasta={setFechaHasta}
                 generarExcel={generarExcel}
             />
+
+            {/* Modal de Facturación */}
+            <Modal show={modalFacturacion} onHide={cerrarModalFacturacion}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Factura emitida</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {facturacionResponse && (
+                        <>
+                            <p>CAE: {facturacionResponse.cae}</p>
+                            <p>Vencimiento: {facturacionResponse.vencimiento}</p>
+                        </>
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={cerrarModalFacturacion}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
         </>
     )
