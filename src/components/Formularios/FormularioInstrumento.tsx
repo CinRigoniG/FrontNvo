@@ -30,6 +30,7 @@ const FormularioInstrumento = () => {
   const url = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
+    console.log(usuarioL);
     const fetchData = async () => {
       await getCategorias();
       await getInstrumento();
@@ -124,7 +125,7 @@ const FormularioInstrumento = () => {
 
   return (
     <>
-      <Form>
+      <Form className="formulario-contenedor">
         <Row>
           <Col md={6}>
             <FormGroup>
