@@ -13,6 +13,7 @@ import FormularioInstrumento from "../components/Formularios/FormularioInstrumen
 import FormularioPedido from "../components/Formularios/FormularioPedido"
 import FormularioDetallPedido from "../components/Formularios/FormularioDetallePedido"
 import GrillaDetallePedido from "../components/Grillas/GrillaDetallePedido"
+import FormularioUsuario from "../components/Formularios/FormularioUsuario"
 
 const AppRoutes = () => {
 
@@ -42,6 +43,7 @@ const AppRoutes = () => {
           <Route path="/formularioDetallePedido/:idDetPedido" element={<FormularioDetallPedido />}/>
           <Route path="/detallePedido/:idPedido" element={<GrillaDetallePedido />}/>
           <Route path="/grillaUsuarios" element={<GrillaUsuario />}/>
+          <Route path="/formularioUsuario/:idUsuario" element={<FormularioUsuario />}/>
         </Route>
       </Routes>
     </Suspense>

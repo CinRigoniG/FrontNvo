@@ -2,3 +2,10 @@
     margin-left: 20px; /* Ajusta el valor según el margen deseado */
     margin-right: 20px;
 }
+
+.row-centrado {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que tome todo el espacio disponible */
+}
