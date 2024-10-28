@@ -106,7 +106,7 @@ const FormularioInstrumento = () => {
         } else {
           await instrumentoService.post(url + "instrumento", instrumentoObjeto);
         }
-        navigate("/grilla");
+        navigate("/grillaInstrumento");
       } catch (error) {
         console.error("Error al guardar el instrumento:", error);
       }
