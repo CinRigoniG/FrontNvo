@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "./PaginaPrincipal.css";
 import { FaGuitar, FaKeyboard, FaDrum } from "react-icons/fa";
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="home-container">
       <header className="home-header">
@@ -14,17 +18,23 @@ const Home = () => {
       <section className="featured-section">
         <h2>Instrumentos Destacados</h2>
         <div className="featured-cards">
-          <div className="card-home">
+          <div className="card-home"
+            onClick={() => navigate('/products/detalle/2')}
+          >
             <FaGuitar className="icon-home" />
             <img src="/images/Guitarra.png" alt="Guitarra" />
             <h3>Guitarra Eléctrica</h3>
           </div>
-          <div className="card-home">
+          <div className="card-home"
+            onClick={() => navigate('/products/detalle/3')}
+          >
             <FaKeyboard className="icon-home" />
             <img src="/images/Teclado.png" alt="Teclado" />
             <h3>Teclado Profesional</h3>
           </div>
-          <div className="card-home">
+          <div className="card-home"
+            onClick={() => navigate('/products/detalle/4')}
+          >
             <FaDrum className="icon-home" />
             <img src="/images/Bateria.png" alt="Batería" />
             <h3>Batería Completa</h3>

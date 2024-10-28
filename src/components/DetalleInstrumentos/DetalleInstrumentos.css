@@ -124,6 +124,23 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Botón de agregar: sin fondo, borde verde */
+.btn-agregar {
+  background-color: transparent;
+  border: 2px solid #28a745; /* Verde */
+  color: #28a745;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #28a745;
+  color: white;
+}
+
 /* Responsividad */
 @media (max-width: 768px) {
   .container-detalle {

@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Instrumento from "../../entities/Instrumento";
 import InstrumentoService from "../../services/InstrumentoService";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "./DetalleInstrumentos.css";
+import { useCarrito } from "../../hooks/useCarrito";
 
 const DetalleInstrumentos = () => {
   const { id } = useParams();
@@ -13,6 +14,8 @@ const DetalleInstrumentos = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const instrumentoService = new InstrumentoService();
   const url = import.meta.env.VITE_API_URL;
+  const { addCarrito } = useCarrito();
+  const [showModal, setShowModal] = useState(false); // Estado para el modal
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +39,7 @@ const DetalleInstrumentos = () => {
   const generarPDF = () => {
     window.open(
       "https://depositoback-production.up.railway.app/api/pedido/downloadPdf/" +
-        id,
+      id,
       "_blank"
     );
   };
@@ -49,6 +52,18 @@ const DetalleInstrumentos = () => {
     navigate("/products");
   };
 
+  const handleAddCarrito = () => {
+    if (detalleInstrumento) { // Asegurarse de que detalleInstrumento no es null
+      addCarrito(detalleInstrumento);
+      setShowModal(true);
+  
+      // Ocultar modal después de 3 segundos
+      setTimeout(() => {
+        setShowModal(false);
+      }, 3000);
+    }
+  };
+  
   return (
     <div className="main-container">
       <div className="container-detalle">
@@ -66,11 +81,11 @@ const DetalleInstrumentos = () => {
               {detalleInstrumento?.cantidadVendida} vendidos
             </p>
             <p className="card-text">
-            <b> Marca: </b>{detalleInstrumento?.marca} <br />
-            <b>Modelo:</b> {detalleInstrumento?.modelo}
+              <b> Marca: </b>{detalleInstrumento?.marca} <br />
+              <b>Modelo:</b> {detalleInstrumento?.modelo}
             </p>
             <p className="card-text">
-            <b> Categoría: </b>{" "}
+              <b> Categoría: </b>{" "}
               {detalleInstrumento?.categoria?.denominacion || "Sin categoría"}
             </p>
             <p className="card-text">
@@ -95,9 +110,17 @@ const DetalleInstrumentos = () => {
             <Button className="btn-success" onClick={generarPDF}>
               Generar PDF
             </Button>
+            <Button className="btn-agregar" onClick={handleAddCarrito}>
+              Agregar <i className="bi bi-cart-plus"></i>
+            </Button>
           </div>
         </div>
       </div>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Body className="text-center">
+          <h6>¡Se agregó al carrito!</h6>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
