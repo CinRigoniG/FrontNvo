@@ -58,7 +58,7 @@ const GrillaPedidos = () => {
 
     const generarExcel = () => {
         if (fechaDesde && fechaHasta) {
-            const url = `https://depositoback-production.up.railway.app/api/pedido/downloadExcel?fechaDesde=${fechaDesde}&fechaHasta=${fechaHasta}`;
+            const url = `https://depositoback-production-b0f4.up.railway.app/api/pedido/downloadExcel?fechaDesde=${fechaDesde}&fechaHasta=${fechaHasta}`;
             window.open(url, "_blank");
             cerrarModal();
         } else {
@@ -75,15 +75,16 @@ const GrillaPedidos = () => {
         }
 
         let iva = total * 0.21
+        let importe = total - iva
 
         const datosComprobante = {
             cuitCliente: 20409378472,
             ptoVenta: 1,
-            comprobante: 1,
-            concepto: 1,
-            tipoDoc: 80,
-            nroDoc: 33693450239,
-            importeGravado: total,
+            comprobante: 6, // 1 Factura A - 6 Factura B
+            concepto: 1, //1 Productos - 2 Servicios - 3 Prod y Serv
+            tipoDoc: 99, // 80 CUIT - 86 CUIL - 96 DNI - 99 Cons Final
+            nroDoc: 0, // 0 Consumidor Final
+            importeGravado: importe,
             importeIva: iva,
             importeExentoIva: 0,
         };
