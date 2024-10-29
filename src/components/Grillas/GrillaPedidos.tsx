@@ -105,7 +105,7 @@ const GrillaPedidos = () => {
 
     return (
         <>
-            <Row style={{ marginLeft: '10px' }}>
+            <Row className="row-centrado" style={{ marginLeft: '10px' }}>
                 {usuarioL?.nombreRol === Roles.ADMIN && (
                     <Button onClick={abrirModal} className="btn-grilla">
                         Generar excel

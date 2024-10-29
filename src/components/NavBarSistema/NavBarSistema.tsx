@@ -124,10 +124,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
                   Iniciar Sesión
                 </Link>
               )}
-              <button onClick={toggleCarrito} className="cart-button">
+              <button  onClick={toggleCarrito} className="cart-button">
                 <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
                 {totalItems > 0 && (
-                  <span className="cart-badge">{totalItems}</span> // Usar totalItems
+                  <span className="cart-badge">{totalItems}</span> 
                 )}
               </button>
             </ul>

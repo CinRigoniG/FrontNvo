@@ -39,7 +39,7 @@ const DetalleInstrumentos = () => {
   const generarPDF = () => {
     window.open(
       "https://depositoback-production.up.railway.app/api/pedido/downloadPdf/" +
-      id,
+        id,
       "_blank"
     );
   };
@@ -53,17 +53,18 @@ const DetalleInstrumentos = () => {
   };
 
   const handleAddCarrito = () => {
-    if (detalleInstrumento) { // Asegurarse de que detalleInstrumento no es null
+    if (detalleInstrumento) {
+      // Asegurarse de que detalleInstrumento no es null
       addCarrito(detalleInstrumento);
       setShowModal(true);
-  
+
       // Ocultar modal después de 3 segundos
       setTimeout(() => {
         setShowModal(false);
       }, 3000);
     }
   };
-  
+
   return (
     <div className="main-container">
       <div className="container-detalle">
@@ -81,7 +82,8 @@ const DetalleInstrumentos = () => {
               {detalleInstrumento?.cantidadVendida} vendidos
             </p>
             <p className="card-text">
-              <b> Marca: </b>{detalleInstrumento?.marca} <br />
+              <b> Marca: </b>
+              {detalleInstrumento?.marca} <br />
               <b>Modelo:</b> {detalleInstrumento?.modelo}
             </p>
             <p className="card-text">
@@ -106,13 +108,16 @@ const DetalleInstrumentos = () => {
               <b>Descripción:</b> <br />
               {detalleInstrumento?.descripcion}
             </p>
-            <Button onClick={handleVolver}>Volver</Button>
-            <Button className="btn-success" onClick={generarPDF}>
-              Generar PDF
-            </Button>
-            <Button className="btn-agregar" onClick={handleAddCarrito}>
-              Agregar <i className="bi bi-cart-plus"></i>
-            </Button>
+            <div className="botones-container">
+              <Button onClick={handleVolver}>Volver</Button>
+              <Button className="btn-pdf" onClick={generarPDF}>
+                Generar PDF
+              </Button>
+              </div>
+              <Button className="btn-agregar" onClick={handleAddCarrito}>
+                Agregar <i className="bi bi-cart-plus"></i>
+              </Button>
+           
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import DetallePedidoService from "../../services/DetallePedidoService";
 import { Button, Row, Table } from "react-bootstrap";
 import { Roles } from "../../entities/Roles";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
+import "./Grillas.css"
 
 const GrillaDetallePedido = () => {
 

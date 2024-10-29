@@ -42,7 +42,7 @@ const GrillaUsuario = () => {
 
     return (
         <>
-            <Row style={{ marginLeft: '10px' }}>
+            <Row className="row-centrado"style={{ marginLeft: '10px' }}>
                 <Link to="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Link >
             </Row>
 

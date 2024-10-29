@@ -104,6 +104,41 @@
   color: #f8f7f773;
   /* Color del texto */
 }
+/* Botón del ícono del carrito sin bordes */
+.cart-button {
+  background: transparent;  /* Sin fondo */
+  border: none;              /* Sin bordes */
+  padding: 0;                /* Sin padding */
+  cursor: pointer;           /* Cambia el cursor al pasar el mouse */
+  color: #e8d6ff;            /* Color del ícono */
+  transition: transform 0.2s ease, color 0.3s ease;  /* Transición para hover */
+  outline: none;             /* Sin borde de enfoque */
+}
+
+/* Hover para el botón del carrito */
+.cart-button:hover {
+  color: #f1e1ff;   /* Cambio de color al hacer hover */
+  transform: scale(1.1);  /* Efecto de zoom */
+}
+
+/* Estilo para el ícono del carrito */
+.cart-icon {
+  font-size: 24px;  /* Tamaño del ícono */
+}
+
+/* Estilo para la insignia de cantidad en el carrito */
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 
 /* Pantallas pequeñas (celulares) */
 @media (max-width: 576px) {
@@ -142,53 +177,3 @@
   }
 }
 
-/* Botón del ícono del carrito sin bordes */
-.cart-button {
-  background: transparent;
-  /* Sin fondo */
-  border: none;
-  /* Sin bordes */
-  padding: 0;
-  /* Sin padding */
-  cursor: pointer;
-  /* Cambiar el cursor al pasar el mouse */
-  color: #e8d6ff;
-  /* Color del ícono */
-  transition: transform 0.2s ease, color 0.3s ease;
-  /* Transiciones para hover */
-  outline: none;
-  /* Asegúrate de que no haya un borde de enfoque */
-}
-
-.cart-button:hover {
-  color: #f1e1ff;
-  /* Color del ícono al hacer hover */
-  transform: scale(1.1);
-  /* Efecto de zoom al pasar el mouse */
-}
-
-/* Estilo para el ícono del carrito */
-.cart-icon {
-  font-size: 24px;
-  /* Tamaño del ícono */
-}
-
-.cart-button {
-  position: relative;
-  /* Asegúrate de que el contenedor del botón tenga posición relativa */
-}
-
-/* Estilo para el punto rojo */
-.cart-badge {
-  position: absolute;
-  top: -5px;
-  /* Ajusta la posición vertical según sea necesario */
-  right: -10px;
-  /* Ajusta la posición horizontal según sea necesario */
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  font-weight: bold;
-}
