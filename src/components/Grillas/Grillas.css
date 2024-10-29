@@ -60,7 +60,7 @@
 }
 
 /* Botones */
-.btn-grilla {
+.botones-grilla {
     background-color: #a586ba;
     color: white;
     border-radius: 5px;
@@ -76,7 +76,7 @@
     text-decoration: none; /* Elimina el subrayado */
 }
 
-.btn-grilla:hover {
+.botones-grilla:hover {
     background-color: #8d6d9c;
     /* Color al pasar el mouse */
 }
@@ -167,7 +167,22 @@
     margin: 5px;
 }
 
-
+.BotonFacturar {
+    background-color: #f18d9b; /* Rosado rojizo pastel */
+    color: #000; /* Letra negra */
+    border: none; /* Sin bordes */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .BotonFacturar:hover {
+    background-color: #aa5f72; /* Color más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de zoom */
+  }
+  
 
 /* Responsive */
 @media (max-width: 768px) {

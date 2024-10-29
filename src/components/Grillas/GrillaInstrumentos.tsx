@@ -105,7 +105,7 @@ const GrillaInstrumentos = () => {
 
       <Row className="row-centrado">
         {usuarioL?.nombreRol === Roles.ADMIN && (
-          <Link to="/formularioInstrumento/0" className="btn-grilla">
+          <Link to="/formularioInstrumento/0" className="botones-grilla">
             Nuevo Instrumento
           </Link>
         )}

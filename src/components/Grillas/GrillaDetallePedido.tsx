@@ -57,7 +57,7 @@ const GrillaDetallePedido = () => {
         <>
             <Row className="row-centrado" style={{ marginLeft: '10px' }}>
                 <Button
-                    className="btn-grilla"
+                    className="botones-grilla"
                     onClick={regresar}
                 >
                     Volver
