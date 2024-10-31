@@ -4,6 +4,7 @@ import UsuarioService from "../../services/UsuarioService";
 import { Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
+import "./Grillas.css"
 
 const GrillaUsuario = () => {
 
@@ -42,8 +43,8 @@ const GrillaUsuario = () => {
 
     return (
         <>
-            <Row style={{ marginLeft: '10px' }}>
-                <Link to="/formularioUsuario/0" className="btn-grilla">Nuevo usuario</Link >
+            <Row className="row-centrado"style={{ marginLeft: '10px' }}>
+                <Link to="/formularioUsuario/0" className="botones-grilla">Nuevo usuario</Link >
             </Row>
 
             <Table className="tabla-grilla" striped bordered hover>

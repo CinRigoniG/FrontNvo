@@ -6,6 +6,7 @@ import DetallePedidoService from "../../services/DetallePedidoService";
 import { Button, Row, Table } from "react-bootstrap";
 import { Roles } from "../../entities/Enums/Roles";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
+import "./Grillas.css"
 
 const GrillaDetallePedido = () => {
 
@@ -56,7 +57,7 @@ const GrillaDetallePedido = () => {
         <>
             <Row className="row-centrado" style={{ marginLeft: '10px' }}>
                 <Button
-                    className="btn-grilla"
+                    className="botones-grilla"
                     onClick={regresar}
                 >
                     Volver

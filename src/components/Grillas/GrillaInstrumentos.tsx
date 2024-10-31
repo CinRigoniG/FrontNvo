@@ -105,7 +105,7 @@ const GrillaInstrumentos = () => {
 
       <Row className="row-centrado">
         {usuarioL?.nombreRol === Roles.ADMIN && (
-          <Link to="/formularioInstrumento/0" className="btn-grilla">
+          <Link to="/formularioInstrumento/0" className="botones-grilla">
             Nuevo Instrumento
           </Link>
         )}
@@ -152,7 +152,7 @@ const GrillaInstrumentos = () => {
                 {usuarioL?.nombreRol === Roles.ADMIN && (
                   <>
                     <td>
-                      <Link to={`/formulario/${instrumento.id}`}>
+                      <Link to={`/formularioInstrumento/${instrumento.id}`}>
                         <i className="bi bi-pencil icono-editar"></i>
                       </Link>
                     </td>

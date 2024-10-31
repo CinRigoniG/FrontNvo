@@ -44,10 +44,19 @@
     padding: 10px 20px;
 }
 
+.modal-btn-secondary:hover{
+    
+    background-color: #60666b;
+}
+
 .modal-btn-danger {
     background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
+}
+.modal-btn-danger:hover{
+    
+    background-color: #d32637;
 }
