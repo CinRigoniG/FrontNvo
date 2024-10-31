@@ -152,7 +152,7 @@ const GrillaInstrumentos = () => {
                 {usuarioL?.nombreRol === Roles.ADMIN && (
                   <>
                     <td>
-                      <Link to={`/formulario/${instrumento.id}`}>
+                      <Link to={`/formularioInstrumento/${instrumento.id}`}>
                         <i className="bi bi-pencil icono-editar"></i>
                       </Link>
                     </td>

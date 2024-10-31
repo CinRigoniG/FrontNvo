@@ -109,7 +109,7 @@ const DetalleInstrumentos = () => {
               {detalleInstrumento?.descripcion}
             </p>
             <div className="botones-container">
-              <Button onClick={handleVolver}>Volver</Button>
+              <Button className="btn-volver" onClick={handleVolver}>Volver</Button>
               <Button className="btn-pdf" onClick={generarPDF}>
                 Generar PDF
               </Button>

@@ -129,6 +129,14 @@ button:hover {
   color: white;
 }
 
+.btn-volver{
+  background-color: #8dbad8;
+}
+
+.btn-volver:hover{
+  background-color: #6ba6ce;
+}
+
 /* Responsividad */
 @media (max-width: 768px) {
   .container-detalle {

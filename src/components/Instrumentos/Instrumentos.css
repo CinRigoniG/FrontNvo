@@ -9,3 +9,30 @@
 .mb-3 .form-control:last-child {
     margin-right: 0; /* Elimina el margen en el último elemento */
 }
+/* Alinear los filtros correctamente */
+.filtros-input-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Opcional: Estilo personalizado para select y buscador */
+.filtro-select,
+.filtro-busqueda,
+.filtro-orden {
+    max-width: 200px;
+}
+
+/* Estilo del checkbox de Envío Gratis */
+.filtro-envio-check {
+    margin-top: 8px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #6b5b95; /* Lila pastel */
+}
+
+.filtro-envio-check input {
+    accent-color: #c3aed6; /* Color del check en lila pastel */
+}
