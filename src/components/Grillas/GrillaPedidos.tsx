@@ -3,7 +3,7 @@ import Pedido from "../../entities/Pedido";
 import PedidoService from "../../services/PedidoService";
 import { useUser } from "../../context/UserContext";
 import { Button, Modal, Row, Table } from "react-bootstrap";
-import { Roles } from "../../entities/Roles";
+import { Roles } from "../../entities/Enums/Roles";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import ModalFechas from "../Modales/ModalFechas";

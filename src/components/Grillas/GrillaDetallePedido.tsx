@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import DetallePedidoService from "../../services/DetallePedidoService";
 import { Button, Row, Table } from "react-bootstrap";
-import { Roles } from "../../entities/Roles";
+import { Roles } from "../../entities/Enums/Roles";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 
 const GrillaDetallePedido = () => {

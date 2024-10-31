@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DetallePedido from "../../entities/DetallePedido";
 import { useCarrito } from "../../hooks/useCarrito";
-import { Roles } from "../../entities/Roles";
+import { Roles } from "../../entities/Enums/Roles";
 import { useUser } from "../../context/UserContext";
 import { BiBasket, BiMinus, BiPlus } from "react-icons/bi"; // Icono para el carrito
 import { FaTrash } from "react-icons/fa"; // Icono para limpiar

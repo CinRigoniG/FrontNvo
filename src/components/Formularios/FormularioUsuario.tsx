@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import { Roles } from "../../entities/Roles";
+import { Roles } from "../../entities/Enums/Roles";
 import Usuario from "../../entities/Usuario";
 import UsuarioService from "../../services/UsuarioService";
 import { Button, Col, Form, FormControl, FormGroup, FormLabel, FormSelect, Row } from "react-bootstrap";

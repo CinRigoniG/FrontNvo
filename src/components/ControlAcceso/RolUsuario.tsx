@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { Roles } from '../../entities/Roles';
+import { Roles } from '../../entities/Enums/Roles';
 import { useUser } from '../../context/UserContext';
 
 interface Props {

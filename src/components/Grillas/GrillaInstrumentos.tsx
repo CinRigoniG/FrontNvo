@@ -5,7 +5,7 @@ import Categoria from "../../entities/Categoria";
 import InstrumentoService from "../../services/InstrumentoService";
 import CategoriaService from "../../services/CategoriaService";
 import { useUser } from "../../context/UserContext";
-import { Roles } from "../../entities/Roles";
+import { Roles } from "../../entities/Enums/Roles";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import "./Grillas.css";
