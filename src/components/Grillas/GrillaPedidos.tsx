@@ -9,6 +9,7 @@ import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import ModalFechas from "../Modales/ModalFechas";
 import AfipService from "../../services/Afip/AfipService";
 import "./Grillas.css";
+import { FaPrint } from "react-icons/fa";
 
 const GrillaPedidos = () => {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
@@ -161,7 +162,7 @@ const GrillaPedidos = () => {
                         facturar();
                       }}
                     >
-                      Facturar
+                      <FaPrint />
                     </Button>
                   </td>
                 </>

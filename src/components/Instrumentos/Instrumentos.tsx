@@ -4,7 +4,7 @@ import InstrumentoService from "../../services/InstrumentoService";
 import Categoria from "../../entities/Categoria";
 import CategoriaService from "../../services/CategoriaService";
 import "./Instrumentos.css";
-import { Form, InputGroup, Row, Col } from "react-bootstrap";
+import { Col, Form, InputGroup, Row } from "react-bootstrap";
 import ItemInstrumento from "../ItemInstrumento/ItemInstrumento";
 
 const Instrumentos = () => {
@@ -77,46 +77,54 @@ const Instrumentos = () => {
 
   return (
     <>
-      <InputGroup className="mb-3 align-items-center filtros-input-group">
-        <Form.Select
-          value={categoriaSeleccionada !== null ? categoriaSeleccionada : ""}
-          onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
-          className="filtro-select"
-        >
-          <option value="">Mostrar Todos</option>
-          {categorias.map((categoria) => (
-            <option key={categoria.id} value={categoria.id}>
-              {categoria.denominacion}
-            </option>
-          ))}
-        </Form.Select>
+      <Row className="filtros-container mb-3 w-100">
+        <Col xs={3}>
+          <Form.Select
+            value={categoriaSeleccionada !== null ? categoriaSeleccionada : ""}
+            onChange={(e) => setCategoriaSeleccionada(Number(e.target.value))}
+            className="filtro-select"
+          >
+            <option value="">Mostrar Todos</option>
+            {categorias.map((categoria) => (
+              <option key={categoria.id} value={categoria.id}>
+                {categoria.denominacion}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
 
-        <Form.Control
-          type="text"
-          placeholder="Buscar..."
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-          className="filtro-busqueda"
-        />
+        <Col xs={3}>
+          <Form.Control
+            type="text"
+            placeholder="Buscar..."
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            className="filtro-busqueda"
+          />
+        </Col>
 
-        <Form.Select
-          value={orden}
-          onChange={(e) => setOrden(e.target.value)}
-          className="filtro-orden"
-        >
-          <option value="">Ordenar por Precio</option>
-          <option value="desc">Mayor a Menor</option>
-          <option value="asc">Menor a Mayor</option>
-        </Form.Select>
+        <Col xs={3}>
+          <Form.Select
+            value={orden}
+            onChange={(e) => setOrden(e.target.value)}
+            className="filtro-orden"
+          >
+            <option value="">Ordenar por Precio</option>
+            <option value="desc">Mayor a Menor</option>
+            <option value="asc">Menor a Mayor</option>
+          </Form.Select>
+        </Col>
 
-        <Form.Check
-          type="checkbox"
-          label="Envío Gratis"
-          checked={envioGratis}
-          onChange={(e) => setEnvioGratis(e.target.checked)}
-          className="filtro-envio-check"
-        />
-      </InputGroup>
+        <Col xs={3} className="d-flex align-items-center">
+          <Form.Check
+            type="checkbox"
+            label="Envío Gratis"
+            checked={envioGratis}
+            onChange={(e) => setEnvioGratis(e.target.checked)}
+            className="filtro-envio-check"
+          />
+        </Col>
+      </Row>
 
       <Row className="justify-content-center">
         {instrumentos
