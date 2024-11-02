@@ -118,8 +118,7 @@ const GrillaInstrumentos = () => {
             <th>Imagen</th>
             <th>Descripción</th>
             <th>Categoría</th>
-            <th>Envío</th>
-            <th>Vendidos</th>
+            <th>Precio</th>
             {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
             {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
           </tr>
@@ -144,12 +143,8 @@ const GrillaInstrumentos = () => {
                     : "Sin Categoría"}
                 </td>
                 <td>
-                  {instrumento.costoEnvio === "G"
-                    ? "Envío gratis"
-                    : `$${instrumento.costoEnvio}`}
+                  {instrumento.precio}
                 </td>
-                <td>{instrumento.cantidadVendida}</td>
-                {usuarioL?.nombreRol === Roles.ADMIN && (
                   <>
                     <td>
                       <Link to={`/formularioInstrumento/${instrumento.id}`}>
@@ -164,7 +159,6 @@ const GrillaInstrumentos = () => {
                       ></i>
                     </td>
                   </>
-                )}
               </tr>
             ))}
         </tbody>
