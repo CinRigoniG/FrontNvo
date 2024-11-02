@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, FormControl, FormLabel, Button, Col, Row } from 'react-bootstrap';
 import Domicilio from '../../entities/Domicilio';
+import "./Fromularios.css"
 
 // Define los tipos de las props
 interface FormularioDomicilioProps {
@@ -68,7 +69,7 @@ const FormularioDomicilio: React.FC<FormularioDomicilioProps> = ({ domicilio, on
                 </Col>
                 {/* Agrega más campos según las propiedades de Domicilio */}
             </Row>
-            <Button variant="danger" onClick={onRemove}>
+            <Button className='btn-eliminaDom' variant="danger" onClick={onRemove}>
                 Eliminar Domicilio
             </Button>
         </Form>

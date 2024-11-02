@@ -182,7 +182,15 @@
     background-color: #aa5f72; /* Color más oscuro al hacer hover */
     transform: scale(1.05); /* Efecto de zoom */
   }
-  
+  .link-personal-data {
+    color: #73c5e6; /* Color celeste pastel */
+    text-decoration: none; /* Quitar el subrayado */
+}
+
+.link-personal-data:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

@@ -8,6 +8,7 @@ import { Button, Col, Form, FormControl, FormGroup, FormLabel, Row } from "react
 import DatePicker from "react-datepicker";
 import Domicilio from "../../entities/Domicilio";
 import FormularioDomicilio from "./FormularioDomicilio";
+import "./Fromularios.css";
 
 
 const FormularioPersona = () => {
@@ -99,6 +100,7 @@ const FormularioPersona = () => {
         }));
     };  
 
+    
     return (
         <>
             <Form className="formulario-contenedor">
@@ -187,8 +189,8 @@ const FormularioPersona = () => {
                         </FormGroup>
                     </Col>
                 </Row>
-                <Row>
-                    <Button onClick={addDomicilio}>Añadir Domicilio</Button>
+                <Row className="row-boton">
+                    <Button className="btn-anadir-domicilio" onClick={addDomicilio}>Añadir Domicilio</Button>
                     {personaObjeto.domicilios.map((domicilio, index) => (
                         <FormularioDomicilio
                             key={index}
@@ -203,40 +205,18 @@ const FormularioPersona = () => {
                     ))}
                 </Row>
                 <div className="mb-12">
-                    <p style={{ color: 'red' }}>{txtValidacion}</p>
+                    <p className="text-danger">{txtValidacion}</p>
                 </div>
                 <Row className="d-flex justify-content-center">
                     <Col md={6} className="d-flex justify-content-center">
-                        <Button
-                            onClick={save}
-                            style={{
-                                width: "150px",
-                                backgroundColor: "#81c784",
-                                color: "white",
-                                border: "none",
-                            }} // Verde
-                        >
-                            Guardar
-                        </Button>
+                        <Button className="btn btn-guardarDatos" onClick={save}>Guardar</Button>
                     </Col>
                     <Col md={6} className="d-flex justify-content-center">
-                        <Button
-                            onClick={() => navigate(-1)}
-                            style={{
-                                width: "150px",
-                                backgroundColor: "#9575cd",
-                                color: "white",
-                                border: "none",
-                            }} // Lila
-                        >
-                            Volver
-                        </Button>
+                        <Button className="btn btn-volverForm" onClick={() => navigate(-1)}>Volver</Button>
                     </Col>
                 </Row>
             </Form>
         </>
     )
-
 }
-
 export default FormularioPersona;
