@@ -54,6 +54,7 @@ const GrillaUsuario = () => {
                         <th>Rol</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,9 @@ const GrillaUsuario = () => {
                                     style={{ cursor: "pointer" }}
                                     onClick={() => abrirModalEliminar(usuario)}
                                 ></i>
+                            </td>
+                            <td>
+                                <Link to={`/formularioPersona/${usuario.id}`}>Mis datos</Link>
                             </td>
                         </tr>
                     ))}

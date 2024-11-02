@@ -113,7 +113,9 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
               {usuarioL ? (
                 <>
                   <div className="usuario-container">
-                    <span className="usuario-texto">Usuario: {usuarioL.nombre}</span>
+                    <Link to={`/formularioPersona/${usuarioL.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <span className="usuario-texto">Usuario: {usuarioL.nombre}</span>
+                    </Link>
                   </div>
                   <button onClick={handleLogoutClick} className="btn btn-link nav-link">
                     Cerrar Sesión
@@ -124,10 +126,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
                   Iniciar Sesión
                 </Link>
               )}
-              <button  onClick={toggleCarrito} className="cart-button">
+              <button onClick={toggleCarrito} className="cart-button">
                 <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
                 {totalItems > 0 && (
-                  <span className="cart-badge">{totalItems}</span> 
+                  <span className="cart-badge">{totalItems}</span>
                 )}
               </button>
             </ul>

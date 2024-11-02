@@ -3,9 +3,9 @@ import BaseService from "./BaseService";
 
 export default class PedidoService extends BaseService<Pedido>{
     
-    async calcularTotal(idPedido: number): Promise<Pedido | null> {
+    async calcularTotal(url:string, idPedido: number): Promise<Pedido | null> {
         try {
-            const response = await fetch(`/total/${idPedido}`, {
+            const response = await fetch(`${url}/total/${idPedido}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

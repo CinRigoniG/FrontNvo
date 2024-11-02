@@ -2,14 +2,14 @@ import Persona from "./Persona";
 
 export default class Domicilio {
     id: number = 0;
-    calle : String = '';
-    numero : String = '';
-    departamento : String = '';
-    piso : String = '';
-    barrio : String = '';
+    calle : string = '';
+    numero : string = '';
+    departamento : string = '';
+    piso : string = '';
+    barrio : string = '';
     codigoPostal : number = 0;
-    localidad : String = '';
-    provincia : String = '';
-    pais : String = '';
+    localidad : string = '';
+    provincia : string = '';
+    pais : string = '';
     persona : Persona = new Persona();
 }

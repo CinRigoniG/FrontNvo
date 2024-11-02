@@ -2,15 +2,18 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import Usuario from "../entities/Usuario";
 
+// Asegúrate de que la interfaz incluya isLoading
 interface UserContextType {
     usuarioL: Usuario | null;
     setUsuarioL: (user: Usuario | null) => void;
+    isLoading: boolean; // Añadir isLoading aquí
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [usuarioL, setUsuarioL] = useState<Usuario | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Leer el usuario de las cookies solo al cargar el componente
     useEffect(() => {
@@ -19,6 +22,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (storedUser) {
             setUsuarioL(JSON.parse(storedUser));
         }
+        setIsLoading(false);
     }, []); // Array de dependencias vacío
 
     // Guardar o eliminar el usuario en las cookies cada vez que cambie
@@ -31,7 +35,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [usuarioL]);
 
     return (
-        <UserContext.Provider value={{ usuarioL, setUsuarioL }}>
+        <UserContext.Provider value={{ usuarioL, setUsuarioL, isLoading }}>
             {children}
         </UserContext.Provider>
     );
