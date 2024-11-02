@@ -3,54 +3,239 @@ import { useUser } from "../../context/UserContext";
 import Persona from "../../entities/Persona";
 import { useEffect, useState } from "react";
 import PersonaService from "../../services/PersonaService";
+import { Roles } from "../../entities/Enums/Roles";
+import { Button, Col, Form, FormControl, FormGroup, FormLabel, Row } from "react-bootstrap";
+import DatePicker from "react-datepicker";
+import Domicilio from "../../entities/Domicilio";
+import FormularioDomicilio from "./FormularioDomicilio";
 
 
 const FormularioPersona = () => {
-
     const navigate = useNavigate();
-    const { idPersona = '0' } = useParams();
-    const personaId = idPersona ? parseInt(idPersona, 10) : 0;
-    const { usuarioL } = useUser(); //Usuario logueado contexto
-    const [personaObjeto, setPersonaObjeto] = useState<Persona>(new Persona());
-    const [txtValidacion, setTxtValidacion] = useState<String>('');
+    const { usuarioId = '0' } = useParams();
+    const { usuarioL } = useUser(); // Usuario logueado contexto
+    const [personaObjeto, setPersonaObjeto] = useState<Persona>({ ...new Persona(), fechaNacimiento: new Date('2024-01-01'), domicilios: [] });
+    const [txtValidacion, setTxtValidacion] = useState<string>('');
     const personaService = new PersonaService();
 
     const url = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
+        console.log(usuarioId)
         const fetchData = async () => {
-            await getPersona();
+            await getPersonaByUsuarioId();
         };
         fetchData();
-    }, [idPersona]);
+    }, [usuarioId]);
 
-    const getPersona = async () => {
-        console.log(idPersona);
-        if(personaId > 0){
-            try{
-                const personaId = idPersona ? parseInt(idPersona, 10) : 0;
-                const personaSelect = await personaService.get(url + 'persona', personaId);
-                if(personaSelect) {
+    const getPersonaByUsuarioId = async () => {
+        if (usuarioId) {
+            try {
+                const personaSelect = await personaService.getPersonaByUsuarioId(url+'persona',parseInt(usuarioId, 10));
+                if (personaSelect) {
+                    console.log(personaSelect)
                     setPersonaObjeto(personaSelect);
-                    console.log(personaSelect);
-                }else{
-                    setTxtValidacion('No se encontró la persona con el ID proporcionado')
+                } else {
+                    setPersonaObjeto(new Persona()); // Crear una nueva instancia si no existe
                 }
-            }catch (error) {
-                setTxtValidacion('Error al obtener los datos de la persona.')
-                console.log(error);
+            } catch (error) {
+                setTxtValidacion('Error al obtener los datos de la persona.');
+                console.error(error);
             }
-        }else{
-            setPersonaObjeto(new Persona());
         }
-    }
+    };
 
     const save = async () => {
-        try{
-            console.log(personaObjeto);
-            if(personaObjeto.nombre.length === 0)
+        console.log(personaObjeto);
+        try {
+            if (!personaObjeto.nombre) {
+                setTxtValidacion('El nombre del usuario no puede estar vacío.');
+                return;
+            }
+            if (!personaObjeto.apellido) {
+                setTxtValidacion('El apellido del usuario no puede estar vacío.');
+                return;
+            }
+            if (!personaObjeto.email || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(personaObjeto.email)) {
+                setTxtValidacion('Ingrese un email válido.');
+                return;
+            }
+            if (!personaObjeto.telefono || personaObjeto.telefono.length < 8) {
+                setTxtValidacion('Ingrese un teléfono válido.');
+                return;
+            }
+
+            let result;
+            if (personaObjeto.id) {
+                result = await personaService.put(url + 'persona', personaObjeto.id, personaObjeto);
+            } else {
+                personaObjeto.usuario.id = parseInt(usuarioId, 10); // Asignar el usuarioId al crear
+                result = await personaService.post(url + 'persona', personaObjeto);
+            }
+            if (result && usuarioL?.nombreRol === Roles.ADMIN) {
+                navigate('/grillaUsuarios');
+            } else if (result) {
+                navigate('/login');
+            } else {
+                setTxtValidacion('No se pudo guardar el usuario, intente nuevamente.');
+            }
+        } catch (error) {
+            setTxtValidacion('Error al guardar los datos.');
+            console.error(error);
         }
-    }
+    };
+
+    const addDomicilio = () => {
+        setPersonaObjeto(prev => ({
+            ...prev,
+            domicilios: [...prev.domicilios, new Domicilio()]
+        }));
+    };
+
+    const removeDomicilio = (index: number) => {
+        setPersonaObjeto(prev => ({
+            ...prev,
+            domicilios: prev.domicilios.filter((_, i) => i !== index)
+        }));
+    };  
+
+    return (
+        <>
+            <Form className="formulario-contenedor">
+                <Row>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Nombre</FormLabel>
+                            <FormControl
+                                type="text"
+                                id="txtNombrePersona"
+                                placeholder="Ingrese el nombre de la persona"
+                                value={personaObjeto.nombre || ''}
+                                onChange={(e) => setPersonaObjeto({
+                                    ...personaObjeto, nombre: e.target.value
+                                })}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Apellido</FormLabel>
+                            <FormControl
+                                type="text"
+                                id="txtApellidoPersona"
+                                placeholder="Ingrese el apellido de la persona"
+                                value={personaObjeto.apellido || ''}
+                                onChange={(e) => setPersonaObjeto({
+                                    ...personaObjeto, apellido: e.target.value
+                                })}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Fecha de nacimiento</FormLabel>
+                            <DatePicker
+                                id="txtFecha"
+                                selected={personaObjeto.fechaNacimiento ? new Date(personaObjeto.fechaNacimiento) : new Date('2024-01-01')}
+                                onChange={(date) => setPersonaObjeto({
+                                    ...personaObjeto,
+                                    fechaNacimiento: date ?? new Date('2024-01-01')
+                                })}
+                                dateFormat="yyyy-MM-dd"
+                                className="form-control"
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl
+                                type="text"
+                                id="txtEmailPersona"
+                                placeholder="Ingrese el email de la persona"
+                                value={personaObjeto.email || ''}
+                                onChange={(e) => setPersonaObjeto({
+                                    ...personaObjeto, email: e.target.value
+                                })}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Telefono</FormLabel>
+                            <FormControl
+                                type="text"
+                                id="txtTelefonoPersona"
+                                placeholder="Ingrese el telefono de la persona"
+                                value={personaObjeto.telefono || ''}
+                                onChange={(e) => setPersonaObjeto({
+                                    ...personaObjeto, telefono: e.target.value
+                                })}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <FormLabel>Usuario</FormLabel>
+                            <Form.Control
+                                type="text"
+                                id="txtUsuarioPersona"
+                                placeholder="Ingrese el usuario de la persona"
+                                value={usuarioL?.nombre || ''}
+                                readOnly
+                            />
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Button onClick={addDomicilio}>Añadir Domicilio</Button>
+                    {personaObjeto.domicilios.map((domicilio, index) => (
+                        <FormularioDomicilio
+                            key={index}
+                            domicilio={domicilio}
+                            onRemove={() => removeDomicilio(index)}
+                            onChange={(updatedDomicilio: Domicilio) => {
+                                const updatedDomicilios = [...personaObjeto.domicilios];
+                                updatedDomicilios[index] = updatedDomicilio;
+                                setPersonaObjeto(prev => ({ ...prev, domicilios: updatedDomicilios }));
+                            }}
+                        />
+                    ))}
+                </Row>
+                <div className="mb-12">
+                    <p style={{ color: 'red' }}>{txtValidacion}</p>
+                </div>
+                <Row className="d-flex justify-content-center">
+                    <Col md={6} className="d-flex justify-content-center">
+                        <Button
+                            onClick={save}
+                            style={{
+                                width: "150px",
+                                backgroundColor: "#81c784",
+                                color: "white",
+                                border: "none",
+                            }} // Verde
+                        >
+                            Guardar
+                        </Button>
+                    </Col>
+                    <Col md={6} className="d-flex justify-content-center">
+                        <Button
+                            onClick={() => navigate(-1)}
+                            style={{
+                                width: "150px",
+                                backgroundColor: "#9575cd",
+                                color: "white",
+                                border: "none",
+                            }} // Lila
+                        >
+                            Volver
+                        </Button>
+                    </Col>
+                </Row>
+            </Form>
+        </>
+    )
 
 }
 
