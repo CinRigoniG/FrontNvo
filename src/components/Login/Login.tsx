@@ -5,7 +5,7 @@ import UsuarioService from "../../services/UsuarioService";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLock, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
-import './Login.css'; // Asegúrate de importar el archivo CSS
+import './Login.css'; 
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Login = () => {
   const usuarioService = new UsuarioService();
 
   const [usuario, setUsuarioLocal] = useState<Usuario>({
-    id: 0, // Asegúrate de que esto tenga el tipo correcto según tu definición de Usuario
+    id: 0, 
     nombre: '',
     clave: '',
     nombreRol: '', // Incluye cualquier otro campo que requiera tu modelo
@@ -59,7 +59,7 @@ const Login = () => {
       <div className="login-card">
         <h2 className="login-title">Iniciar Sesión</h2>
         <form>
-          <div className="mb-3 input-group">
+          <div className="input-group">
             <span className="input-group-text">
               <FaUser />
             </span>
@@ -75,7 +75,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div className="mb-3 input-group" style={{ position: 'relative' }}>
+          <div className="input-group" style={{ position: 'relative' }}>
             <span className="input-group-text">
               <FaLock />
             </span>
@@ -101,7 +101,7 @@ const Login = () => {
             )}
           </div>
           <div className="d-grid">
-            <button onClick={login} className="btn btn-success" type="button">
+            <button onClick={login} className="btn btn-Ingresar" type="button">
               Ingresar
             </button>
           </div>
@@ -109,7 +109,7 @@ const Login = () => {
             <p className="validation-message">{txtValidacion}</p>
           </div>
           <div className="d-grid">
-            <button onClick={handleRegister} className="btn btn-primary crearU" type="button">
+            <button onClick={handleRegister} className="btn btn-crearU" type="button">
               Registrarse
             </button>
           </div>

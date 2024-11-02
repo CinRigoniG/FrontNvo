@@ -33,21 +33,23 @@
     border: 1px solid #9575cd; /* Borde lila */
 }
 
-.btn-success {
+.btn-Ingresar {
     background-color: #b39ddb; /* Color para el botón de ingresar */
     border: none; /* Sin borde */
+    color: #ffffff;
 }
 
-.btn-success:hover {
+.btn-Ingresar:hover {
     background-color: #9575cd; /* Color más oscuro al pasar el mouse */
 }
 
-.btn-primary {
+.btn-crearU {
     background-color: #81c784; /* Color azul para el botón de registrarse */
     border: none; /* Sin borde */
+    color: #ffffff;
 }
 
-.btn-primary:hover {
+.btn-crearU:hover {
     background-color: #66bb6a; /* Color más oscuro al pasar el mouse */
 }
 

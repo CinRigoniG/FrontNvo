@@ -3,46 +3,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 10px 10px 10px;
-}
-
-/* Estilo para el selector */
-.filtro-select {
-    width: 200px;
-    /* Ajusta el ancho según lo necesites */
-    margin-right: 10px;
-    /* Espacio entre el select y el input */
+    margin: 10px;
+    gap: 10px; /* Espacio entre los elementos */
+    background-color: #e0e8f9; /* Fondo celeste suave */
+    padding: 15px;
     border-radius: 10px;
-    /* Bordes redondeados */
-    border: 1px solid #ccc;
-    /* Borde gris */
-    background-color: #f8f9fa;
-    /* Color de fondo claro */
-}
-
-/* Estilo para el campo de búsqueda */
-.filtro-busqueda {
-    flex: 1;
-    /* Hace que el campo ocupe el espacio restante */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    border: 1px solid #ccc;
-    /* Borde gris */
-    background-color: #f8f9fa;
-    /* Color de fondo claro */
-    margin: 10px 10px 10px;
-}
-
-/* Efecto de foco para ambos componentes */
-.filtro-select:focus,
-.filtro-busqueda:focus {
-    border-color: #007BFF;
-    /* Cambia el borde al azul al enfocar */
+  }
+  
+  /* Estilo para el selector y el campo de búsqueda */
+  .filtro-select,
+  .filtro-busqueda {
+    background-color: #f5f7fa;
+    border: 1px solid #c3aed6; /* Borde lila */
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Colores específicos para cada filtro */
+  .filtro-select {
+    color: #5b8c5a; /* Verde suave */
+    font-weight: bold;
+  }
+  
+  .filtro-busqueda {
+    color: #41729f; /* Azul suave */
+    font-weight: bold;
+  }
+  
+  /* Efecto de foco */
+  .filtro-select:focus,
+  .filtro-busqueda:focus {
+    border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    /* Sombra para resaltar */
-}
-
-
+  }
+  
 /* Estilo para centrar el contenido verticalmente */
 .tabla-grilla tbody tr td {
     vertical-align: middle;
@@ -61,24 +56,33 @@
 
 /* Botones */
 .botones-grilla {
-    background-color: #a586ba;
-    color: white;
+    background-color: #a586ba !important;
+    color: white !important;
     border-radius: 5px;
     border: none;
-    padding: 5px 12px; /* Ajustar padding para mantener altura */
-    font-size: 14px; /* Ajustar tamaño de fuente */
+    padding: 5px 12px;
+    font-size: 14px;
     transition: background-color 0.3s ease;
-    margin: 10px 0; /* Espacio arriba y abajo */
-    display: inline-block; /* Asegura que el ancho se ajuste al contenido */
-    width: auto; /* Establece el ancho automático según el contenido */
-    max-width: 150px; /* Establece un ancho máximo para limitar el tamaño */
-    text-align: center; /* Asegúrate que el texto esté centrado */
-    text-decoration: none; /* Elimina el subrayado */
+    margin: 10px 0;
+    display: inline-block;
+    width: auto;
+    max-width: 150px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .botones-grilla:hover {
-    background-color: #8d6d9c;
-    /* Color al pasar el mouse */
+    background-color:  #8d6d9c!important;
+}
+
+.botones-grilla:focus {
+    background-color: #a586ba; /* Asegura el mismo color en foco */
+    outline: none; /* Opcional: elimina el contorno azul */
+}
+
+.botones-grilla:visited {
+    background-color: #a586ba; /* Asegura el mismo color en visitado */
+    color: white;
 }
 
 .row-centrado {

@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import ModalFechas from "../Modales/ModalFechas";
 import AfipService from "../../services/Afip/AfipService";
-import "./Grillas.css";
 import { FaPrint } from "react-icons/fa";
+import "./Grillas.css"
 
 const GrillaPedidos = () => {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
@@ -110,7 +110,7 @@ const GrillaPedidos = () => {
     <>
       <Row className="row-centrado" style={{ marginLeft: "10px" }}>
         {usuarioL?.nombreRol === Roles.ADMIN && (
-          <Button onClick={abrirModal} className="botones-grilla">
+          <Button onClick={abrirModal} className="botones-grilla" >
             Generar excel
           </Button>
         )}

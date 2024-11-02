@@ -1,15 +1,63 @@
+/* Contenedor de filtros */
+.filtros-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 15px;
+  background-color: #e0e8f9; /* Fondo celeste suave */
+  border-radius: 8px;
+}
+
+/* Estilos comunes para cada filtro */
+.filtro-item {
+  display: flex;
+  align-items: center;
+}
+
 .filtros-container .form-control,
 .filtros-container .form-select,
 .filtros-container .form-check {
   width: 100%;
+  background-color: #f5f7fa;
+  border: 1px solid #c3aed6; /* Borde lila */
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.filtros-container .filtro-envio-check {
-  margin-left: 10px;
+/* Estilos específicos de cada filtro */
+.filtros-container .filtro-select {
+  color: #5b8c5a; /* Verde suave */
   font-weight: bold;
-  color: #6b5b95; /* Lila pastel */
 }
 
-.filtros-container .filtro-envio-check input {
-  accent-color: #c3aed6; /* Color del check en lila pastel */
+.filtros-container .filtro-busqueda {
+  color: #41729f; /* Azul suave */
+  font-weight: bold;
+}
+
+.filtros-container .filtro-orden {
+  color: #6b5b95; /* Lila pastel */
+  font-weight: bold;
+}
+
+/* Estilos para "Envío Gratis" con ícono */
+.filtro-envio {
+  justify-content: center; /* Centra el texto y el ícono */
+  background-color: #c6eec1; /* Fondo rosado suave */
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.filtro-envio-check {
+  margin-right: 5px;
+}
+
+.filtro-envio .bi-truck {
+  color: #245e37; /* Lila pastel */
+  font-size: 1.2em;
+}
+
+.filtro-envio-check input {
+  accent-color: #c3aed6;
 }
