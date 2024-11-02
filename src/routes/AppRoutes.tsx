@@ -36,6 +36,7 @@ const AppRoutes = () => {
         } />
         <Route path="/products/detalle/:id" element={<DetalleInstrumentos />} />
         <Route path="/dondeEstamos" element={<DondeEstamos />} />
+        
         {/* Rutas disponibles solo si el usuario es ADMIN */}
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
         <Route path="/pantallaAdmin" element={<PantallaAdmin />}/>
