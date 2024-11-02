@@ -21,10 +21,10 @@ const ModalCierreSesion: React.FC<ModalCierreSesionProps> = ({ showModal, onConf
             </Modal.Header>
             <Modal.Body className="modal-body-custom">¿Estás seguro que quieres cerrar sesión?</Modal.Body>
             <Modal.Footer className="modal-footer">
-                <Button className="modal-btn-secondary" onClick={onCancel}>
+                <Button className="btn-cancelar" onClick={onCancel}>
                     Cancelar
                 </Button>
-                <Button className="modal-btn-danger" onClick={onConfirm}>
+                <Button className="btn-aceptar" onClick={onConfirm}>
                     Aceptar
                 </Button>
             </Modal.Footer>

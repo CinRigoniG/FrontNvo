@@ -7,8 +7,6 @@ import {
   faMusic,
   faTable,
   faShoppingCart,
-  faUser,
-  faList,
 } from "@fortawesome/free-solid-svg-icons";
 import "./NavBarSistema.css";
 import { useUser } from "../../context/UserContext";
@@ -32,19 +30,21 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
     navigate("/login", { replace: true });
   };
 
-
   const handleLogoutClick = () => {
     setShowModal(true);
   };
 
   const toggleNavbar = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   // Maneja el clic fuera del navbar
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -70,7 +70,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
+          <div
+            className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
+            id="navbarNav"
+          >
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/">
@@ -90,20 +93,9 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
 
               {usuarioL?.nombreRol === "ADMIN" && (
                 <>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/grillaInstrumentos">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/pantallaAdmin">
                       <FontAwesomeIcon icon={faTable} />
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/grillaPedidos">
-                      <FontAwesomeIcon icon={faList} />
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/grillaUsuarios">
-                      <FontAwesomeIcon icon={faUser} />
                     </Link>
                   </li>
                 </>
@@ -113,16 +105,24 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
               {usuarioL ? (
                 <>
                   <div className="usuario-container">
-                    <Link to={`/formularioPersona/${usuarioL.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      <span className="usuario-texto">Usuario: {usuarioL.nombre}</span>
+                    <Link
+                      to={`/formularioPersona/${usuarioL.id}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <span className="usuario-texto">
+                        Usuario: {usuarioL.nombre}
+                      </span>
                     </Link>
                   </div>
-                  <button onClick={handleLogoutClick} className="btn btn-link nav-link">
+                  <button
+                    onClick={handleLogoutClick}
+                    className="btn btn-link nav-link"
+                  >
                     Cerrar Sesión
                   </button>
                 </>
               ) : (
-                <Link to="/login" className="btn btn-link nav-link">
+                <Link to="/login" className="btn-ingresarSesion">
                   Iniciar Sesión
                 </Link>
               )}

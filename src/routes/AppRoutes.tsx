@@ -15,6 +15,7 @@ import FormularioDetallPedido from "../components/Formularios/FormularioDetalleP
 import GrillaDetallePedido from "../components/Grillas/GrillaDetallePedido"
 import FormularioUsuario from "../components/Formularios/FormularioUsuario"
 import FormularioPersona from "../components/Formularios/FormularioPersona"
+import PantallaAdmin from "../components/PantallaAdmin/PantallaAdmin"
 
 const AppRoutes = () => {
 
@@ -37,6 +38,7 @@ const AppRoutes = () => {
         <Route path="/dondeEstamos" element={<DondeEstamos />} />
         {/* Rutas disponibles solo si el usuario es ADMIN */}
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
+        <Route path="/pantallaAdmin" element={<PantallaAdmin />}/>
           <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />}/>
           <Route path="/formularioInstrumento/:idInstrumento" element={<FormularioInstrumento />}/>
           <Route path="/grillaPedidos" element={<GrillaPedidos />}/>

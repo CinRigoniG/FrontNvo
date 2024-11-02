@@ -36,27 +36,27 @@
 }
 
 /* Botones del modal */
-.modal-btn-secondary {
-    background-color: #6c757d;
+.btn-cancelar {
+    background-color: #6c757d !important;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
 }
 
-.modal-btn-secondary:hover{
+.btn-cancelar:hover{
     
-    background-color: #60666b;
+    background-color: #60666b !important;
 }
 
-.modal-btn-danger {
-    background-color: #dc3545;
+.btn-aceptar {
+    background-color: #dc3545 !important;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
 }
-.modal-btn-danger:hover{
+.btn-aceptar:hover{
     
-    background-color: #d32637;
+    background-color: #d32637 !important;
 }

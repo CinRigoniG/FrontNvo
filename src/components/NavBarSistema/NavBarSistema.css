@@ -70,6 +70,31 @@
   color: #333;
 }
 
+
+/* Estilo personalizado para el botón de ingresar sesión */
+.btn-ingresarSesion {
+  background-color: #f3e9ff; /* Color de fondo suave */
+  color: #6d5a9c; /* Texto en color lila oscuro */
+  padding: 10px 15px; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de fuente */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+  text-decoration: none;
+}
+
+/* Efecto hover para el botón de ingresar sesión */
+.btn-ingresarSesion:hover {
+  background-color: #c5a3ff; /* Color de fondo al pasar el mouse */
+  color: #fff; /* Color del texto al pasar el mouse */
+}
+
+/* Efecto de foco */
+.btn-ingresarSesion:focus {
+  outline: none; /* Sin contorno al enfocar */
+}
+
+
 /* Pantallas medianas (tabletas) */
 @media (max-width: 768px) {
   .titulo {
