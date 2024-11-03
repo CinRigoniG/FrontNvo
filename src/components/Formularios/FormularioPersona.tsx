@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import Domicilio from "../../entities/Domicilio";
 import FormularioDomicilio from "./FormularioDomicilio";
 import "./Fromularios.css";
+import UsuarioService from "../../services/UsuarioService";
 
 
 const FormularioPersona = () => {
@@ -17,7 +18,9 @@ const FormularioPersona = () => {
     const { usuarioL } = useUser(); // Usuario logueado contexto
     const [personaObjeto, setPersonaObjeto] = useState<Persona>({ ...new Persona(), fechaNacimiento: new Date('2024-01-01'), domicilios: [] });
     const [txtValidacion, setTxtValidacion] = useState<string>('');
+    const [nombreUsuario, setNombreUsuario] = useState<string>('');
     const personaService = new PersonaService();
+    const usuarioService = new UsuarioService();
 
     const url = import.meta.env.VITE_API_URL;
 
@@ -26,13 +29,28 @@ const FormularioPersona = () => {
         const fetchData = async () => {
             await getPersonaByUsuarioId();
         };
+        const fetchUsuario = async () => {
+            try {
+                const usuarioData = await usuarioService.get(url + 'usuario', parseInt(usuarioId, 10));
+                if (usuarioData) {
+                    setNombreUsuario(usuarioData.nombre);
+                }
+            } catch (error) {
+                console.error('Error al obtener el usuario:', error);
+            }
+        };
+
+        if (usuarioId) {
+            fetchUsuario();
+        }
+
         fetchData();
     }, [usuarioId]);
 
     const getPersonaByUsuarioId = async () => {
         if (usuarioId) {
             try {
-                const personaSelect = await personaService.getPersonaByUsuarioId(url+'persona',parseInt(usuarioId, 10));
+                const personaSelect = await personaService.getPersonaByUsuarioId(url + 'persona', parseInt(usuarioId, 10));
                 if (personaSelect) {
                     console.log(personaSelect)
                     setPersonaObjeto(personaSelect);
@@ -70,7 +88,7 @@ const FormularioPersona = () => {
             if (personaObjeto.id) {
                 result = await personaService.put(url + 'persona', personaObjeto.id, personaObjeto);
             } else {
-                personaObjeto.usuario.id = parseInt(usuarioId, 10); // Asignar el usuarioId al crear
+                personaObjeto.usuario = await usuarioService.get(url + 'usuario', parseInt(usuarioId, 10));
                 result = await personaService.post(url + 'persona', personaObjeto);
             }
             if (result && usuarioL?.nombreRol === Roles.ADMIN) {
@@ -98,9 +116,9 @@ const FormularioPersona = () => {
             ...prev,
             domicilios: prev.domicilios.filter((_, i) => i !== index)
         }));
-    };  
+    };
 
-    
+
     return (
         <>
             <Form className="formulario-contenedor">
@@ -185,7 +203,7 @@ const FormularioPersona = () => {
                                 type="text"
                                 id="txtUsuarioPersona"
                                 placeholder="Ingrese el usuario de la persona"
-                                value={usuarioL?.nombre || ''}
+                                value={nombreUsuario}
                                 readOnly
                             />
                         </FormGroup>

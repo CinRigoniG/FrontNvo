@@ -6,18 +6,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLock, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import './Login.css'; 
+import PersonaService from "../../services/PersonaService";
 
 const Login = () => {
   const navigate = useNavigate();
   const { setUsuarioL } = useUser();
   const [txtValidacion, setTxtValidacion] = useState<string>("");
   const usuarioService = new UsuarioService();
+  const personaService = new PersonaService();
 
   const [usuario, setUsuarioLocal] = useState<Usuario>({
     id: 0, 
     nombre: '',
     clave: '',
-    nombreRol: '', // Incluye cualquier otro campo que requiera tu modelo
+    nombreRol: ''
   });
 
   const [mostrarClave, setMostrarClave] = useState(false); // Estado para mostrar/ocultar la clave
@@ -35,16 +37,24 @@ const Login = () => {
       const users = await usuarioService.getAll(url + "usuario");
       const foundUser = users.find((u) => u.nombre.toLowerCase() === usuario.nombre.toLowerCase());
   
-      console.log("Usuario encontrado:", foundUser); // Debug para verificar el usuario encontrado
+      console.log("Usuario encontrado:", foundUser);
       console.log("Clave ingresada:", sha1.sha1(usuario.clave));
   
       if (foundUser && sha1.sha1(usuario.clave) === foundUser.clave) {
         setUsuarioL(foundUser);
-        console.log("Usuario logueado:", foundUser); // Debug para verificar que setUsuarioL se ejecute correctamente
-        navigate("/", { replace: true });
+
+        // Verifica si existe una Persona relacionada
+        const persona = await personaService.getPersonaByUsuarioId(url + "persona", foundUser.id);
+        
+        if (persona) {
+          navigate("/", { replace: true });
+        } else {
+          navigate(`/formularioPersona/${foundUser.id}`, { replace: true });
+        }
       } else {
         setTxtValidacion("Usuario o clave incorrectos");
       }
+
     } catch (error) {
       console.error("Error en el login", error);
     }
