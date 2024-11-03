@@ -172,8 +172,8 @@
 }
 
 .BotonFacturar {
-    background-color: #f18d9b; /* Rosado rojizo pastel */
-    color: #000; /* Letra negra */
+    background-color: #f18d9b  !important; /* Rosado rojizo pastel */
+    color: #000 !important; /* Letra negra */
     border: none; /* Sin bordes */
     padding: 10px 20px;
     font-size: 16px;
@@ -183,7 +183,7 @@
   }
   
   .BotonFacturar:hover {
-    background-color: #aa5f72; /* Color más oscuro al hacer hover */
+    background-color: #aa5f72  !important; /* Color más oscuro al hacer hover */
     transform: scale(1.05); /* Efecto de zoom */
   }
   .link-personal-data {
@@ -194,6 +194,7 @@
 .link-personal-data:hover {
     text-decoration: underline; /* Subrayar al pasar el mouse */
 }
+
 
 
 /* Responsive */

@@ -6,7 +6,7 @@ import { Button, Modal, Row, Table } from "react-bootstrap";
 import { Roles } from "../../entities/Enums/Roles";
 import { Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
-import ModalFechas from "../Modales/ModalFechas";
+import ModalFechas from "../Modales/ModalExcel";
 import AfipService from "../../services/Afip/AfipService";
 import { FaPrint } from "react-icons/fa";
 import "./Grillas.css"

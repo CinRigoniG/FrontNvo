@@ -60,3 +60,22 @@
     
     background-color: #d32637 !important;
 }
+
+/* Modales.css */
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    margin-right: 10px; /* Añade espacio entre el label y el input */
+    font-weight: bold;
+}
+
+.input-group input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -32,7 +32,7 @@ const ModalFechas: React.FC<ModalFechasProps> = ({
             </Modal.Header>
             <Modal.Body className="modal-body-custom">
                 <div className="input-group">
-                    <label htmlFor="fechaDesde">Fecha Desde</label>
+                    <label htmlFor="fechaDesde">Fecha Desde: </label>
                     <input
                         type="date"
                         id="fechaDesde"
@@ -41,7 +41,7 @@ const ModalFechas: React.FC<ModalFechasProps> = ({
                     />
                 </div>
                 <div className="input-group">
-                    <label htmlFor="fechaHasta">Fecha Hasta</label>
+                    <label htmlFor="fechaHasta">Fecha Hasta: </label>
                     <input
                         type="date"
                         id="fechaHasta"
@@ -51,10 +51,10 @@ const ModalFechas: React.FC<ModalFechasProps> = ({
                 </div>
             </Modal.Body>
             <Modal.Footer className="modal-footer">
-                <Button className="modal-btn-secondary" onClick={onHide}>
+                <Button className="btn-cancelar" onClick={onHide}>
                     Cerrar
                 </Button>
-                <Button className="modal-btn-danger" onClick={generarExcel}>
+                <Button className="btn-aceptar" onClick={generarExcel}>
                     Generar Excel
                 </Button>
             </Modal.Footer>
