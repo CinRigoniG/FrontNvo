@@ -1,3 +1,34 @@
+.bienvenida-container {
+  background-color: #a1ffeb; /* Color de fondo amarillo claro */
+  padding: 20px; /* Espaciado */
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center; /* Alinear el texto al centro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  animation: fadeIn 1s; /* Animación de aparición */
+}
+
+.bienvenida-titulo {
+  color: #2d5353; /* Color del texto */
+  font-family: Arial, sans-serif; /* Fuente */
+  font-size: 36px; /* Tamaño de la fuente */
+  margin: 0; /* Eliminar margen */
+}
+
+.icono-bienvenida {
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 .pantalla-admin {
     padding: 20px;
     text-align: center;

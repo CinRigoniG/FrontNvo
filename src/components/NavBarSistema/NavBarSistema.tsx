@@ -7,6 +7,7 @@ import {
   faMusic,
   faTable,
   faShoppingCart,
+  faTag,
 } from "@fortawesome/free-solid-svg-icons";
 import "./NavBarSistema.css";
 import { useUser } from "../../context/UserContext";
@@ -85,15 +86,22 @@ const Navbar: React.FC<NavbarProps> = ({ toggleCarrito }) => {
                   <FontAwesomeIcon icon={faMapMarkedAlt} />
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/products">
                   <FontAwesomeIcon icon={faMusic} />
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link className="nav-link" to="/promociones">
+                  <FontAwesomeIcon icon={faTag} />
+                </Link>
+              </li>
+
               {usuarioL?.nombreRol === "ADMIN" && (
                 <>
-                <li className="nav-item">
+                  <li className="nav-item">
                     <Link className="nav-link" to="/pantallaAdmin">
                       <FontAwesomeIcon icon={faTable} />
                     </Link>
