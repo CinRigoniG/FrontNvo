@@ -36,21 +36,21 @@
 }
 
 .btn-guardarDatos {
-    background-color: #9575cd; /* Color de fondo lila */
+    background-color: #9575cd  !important; /* Color de fondo lila */
     border: none; /* Sin borde */
 }
 
 .btn-guardarDatos:hover {
-    background-color: #7e57c2; /* Color más oscuro al pasar el mouse */
+    background-color: #7e57c2  !important; /* Color más oscuro al pasar el mouse */
 }
 
 .btn-volverForm {
-    background-color: #bdbdbd; /* Color de fondo gris */
+    background-color: #bdbdbd  !important; /* Color de fondo gris */
     border: none; /* Sin borde */
 }
 
 .btn-volverForm:hover {
-    background-color: #a6a6a6; /* Color más oscuro al pasar el mouse */
+    background-color: #a6a6a6  !important; /* Color más oscuro al pasar el mouse */
 }
 
 .mb-12 {
@@ -70,7 +70,7 @@
 .btn-anadir-domicilio {
     margin-top: 20px;
     width: 200px; /* Ancho más angosto */
-    background-color: #75bbcd; /* Color lila */
+    background-color: #75bbcd  !important; 
     color: white; /* Texto blanco */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -79,15 +79,15 @@
 }
 
 .btn-anadir-domicilio:hover {
-    background-color: #45b2ce; /* Color lila más oscuro al pasar el mouse */
+    background-color: #45b2ce  !important;
 }
 .btn-eliminaDom{
     margin-top: 20px;
-    background-color: #c45858;
+    background-color: #c45858  !important;
     border: none;
 }
 
 .btn-eliminaDom:hover{
-    background-color: #c04141;
+    background-color: #c04141  !important;
 
 }

@@ -134,20 +134,22 @@ const FormularioPersona = () => {
                         </FormGroup>
                     </Col>
                     <Col md={6}>
-                        <FormGroup>
-                            <FormLabel>Fecha de nacimiento</FormLabel>
-                            <DatePicker
-                                id="txtFecha"
-                                selected={personaObjeto.fechaNacimiento ? new Date(personaObjeto.fechaNacimiento) : new Date('2024-01-01')}
-                                onChange={(date) => setPersonaObjeto({
-                                    ...personaObjeto,
-                                    fechaNacimiento: date ?? new Date('2024-01-01')
-                                })}
-                                dateFormat="yyyy-MM-dd"
-                                className="form-control"
-                            />
-                        </FormGroup>
-                    </Col>
+    <FormGroup>
+        <FormLabel>Fecha de nacimiento</FormLabel>
+        <DatePicker
+            id="txtFecha"
+            selected={personaObjeto.fechaNacimiento ? new Date(personaObjeto.fechaNacimiento) : null}
+            onChange={(date) => setPersonaObjeto({
+                ...personaObjeto,
+                fechaNacimiento: date ?? new Date()
+            })}
+            dateFormat="dd/MM/yyyy" // Formato latinoamericano
+            placeholderText="dd/mm/aaaa"
+            className="form-control"
+        />
+    </FormGroup>
+</Col>
+
                     <Col md={6}>
                         <FormGroup>
                             <FormLabel>Email</FormLabel>
@@ -209,7 +211,7 @@ const FormularioPersona = () => {
                 </div>
                 <Row className="d-flex justify-content-center">
                     <Col md={6} className="d-flex justify-content-center">
-                        <Button className="btn btn-guardarDatos" onClick={save}>Guardar</Button>
+                        <button className="btn btn-guardarDatos" onClick={save}>Guardar</button>
                     </Col>
                     <Col md={6} className="d-flex justify-content-center">
                         <Button className="btn btn-volverForm" onClick={() => navigate(-1)}>Volver</Button>
