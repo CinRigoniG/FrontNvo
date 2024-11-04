@@ -20,7 +20,6 @@ const GrillaInstrumentos = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [instrumentoAEliminar, setInstrumentoAEliminar] =
     useState<Instrumento | null>(null);
-
   const instrumentoService = new InstrumentoService();
   const categoriaService = new CategoriaService();
   const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto

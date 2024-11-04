@@ -6,7 +6,7 @@ export default class Empresa {
     razonSocial: string = '';
     imagenEmpresa: string = '';
     cuit: number = 0;
-    telefono: number = 0;
+    telefono: string = '';
     gmail: string = '';
     sucursales : Sucursal[] = [];
 }

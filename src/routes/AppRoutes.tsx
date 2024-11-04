@@ -16,9 +16,10 @@ import GrillaDetallePedido from "../components/Grillas/GrillaDetallePedido";
 import FormularioUsuario from "../components/Formularios/FormularioUsuario";
 import FormularioPersona from "../components/Formularios/FormularioPersona";
 import PantallaAdmin from "../components/PantallaAdmin/PantallaAdmin";
-import { Promocion } from "../entities/Promocion";
 import Promociones from "../components/Promociones/Promociones";
 import EmpresaSucursal from "../components/EmpresaSucursal/EmpresaSucursal";
+import FormularioEmpresa from "../components/Formularios/FormularioEmpresa";
+import FormularioSucursal from "../components/Formularios/FormularioSucursal";
 
 const AppRoutes = () => {
   const DondeEstamos = lazy(
@@ -88,6 +89,8 @@ const AppRoutes = () => {
           />
         </Route>
         <Route path="/empresaSucursal" element={<EmpresaSucursal />} />
+        <Route path="/formularioEmpresa/:idEmpresa" element={<FormularioEmpresa />}/>
+        <Route path="/formularioSucursal/:idSucursal/:idEmpresa" element={<FormularioSucursal />}/>
       </Routes>
     </Suspense>
   );
