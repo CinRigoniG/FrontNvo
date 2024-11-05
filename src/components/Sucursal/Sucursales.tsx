@@ -28,6 +28,11 @@ const Sucursales = () => {
     navigate(-1); // Navega a la pantalla anterior
   };
 
+/*   const detalleSucursal = (idSucursal: number) => {
+    navigate(`/detalleSucursal/${idSucursal}`);
+  }; */
+
+
   return (
     <Container>
       <h2 className="mt-4">Administración de sucursales</h2>
@@ -36,7 +41,6 @@ const Sucursales = () => {
           sucursales.map((sucursal) => (
             <Col md={4} key={sucursal.id} className="mb-4">
               <Card>
-                <Card.Img variant="top" src="/images/Logo.png" alt="Imagen Sucursal" />
                 <Card.Body>
                   <Card.Title>{sucursal.nombre}</Card.Title>
                   <Card.Text>Horario: {sucursal.horarioApertura} - {sucursal.horarioCierre}</Card.Text>
@@ -44,6 +48,9 @@ const Sucursales = () => {
                   <Button className="btn-modificar" onClick={() => editarSucursal(sucursal.id!)}>
                     Modificar Sucursal
                   </Button>
+                 {/*  <Button className="btn-modificar" onClick={() => detalleSucursal(sucursal.id!)}>
+                    ver
+                  </Button> */}
                 </Card.Body>
               </Card>
             </Col>

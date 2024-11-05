@@ -339,7 +339,7 @@ const FormularioSucursal = () => {
                                 backgroundColor: "#9575cd",
                                 color: "white",
                                 border: "none",
-                            }} // Lila
+                            }} 
                         >
                             Volver
                         </Button>

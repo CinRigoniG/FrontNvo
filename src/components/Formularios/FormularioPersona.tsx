@@ -324,7 +324,7 @@ const FormularioPersona = () => {
           </Col>
         </Row>
         <Row className="row-boton">
-          <Button className="btn-anadir-domicilio" onClick={addDomicilio}>
+          <Button className="btn-anadir-algo" onClick={addDomicilio}>
             Añadir Domicilio
           </Button>
           {personaObjeto.domicilios.map((domicilio, index) => (

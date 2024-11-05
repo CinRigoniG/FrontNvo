@@ -19,8 +19,9 @@ import PantallaAdmin from "../components/PantallaAdmin/PantallaAdmin";
 import Promociones from "../components/Promociones/Promociones";
 import FormularioEmpresa from "../components/Formularios/FormularioEmpresa";
 import FormularioSucursal from "../components/Formularios/FormularioSucursal";
-import Sucursales from "../components/EmpresaSucursal/Sucursales";
+import Sucursales from "../components/Sucursal/Sucursales";
 import GrillaEmpresa from "../components/Grillas/GrillaEmpresa";
+import DetalleSucursal from "../components/Sucursal/DetalleSucursal";
 
 const AppRoutes = () => {
   const DondeEstamos = lazy(
@@ -89,11 +90,23 @@ const AppRoutes = () => {
             element={<FormularioPersona />}
           />
         </Route>
+
         <Route path="/empresaSucursal" element={<GrillaEmpresa />} />
 
-      <Route path="/sucursales/:idEmpresa" element={<Sucursales />} />
-        <Route path="/formularioEmpresa/:idEmpresa" element={<FormularioEmpresa />}/>
-        <Route path="/formularioSucursal/:idSucursal/:idEmpresa" element={<FormularioSucursal />}/>
+        <Route path="/sucursales/:idEmpresa" element={<Sucursales />} />
+        <Route
+          path="/formularioEmpresa/:idEmpresa"
+          element={<FormularioEmpresa />}
+        />
+        <Route
+          path="/formularioSucursal/:idSucursal/"
+          element={<FormularioSucursal />}
+        />
+
+      <Route
+          path="/detalleSucursal/:idSucursal/"
+          element={<DetalleSucursal />}
+        />
       </Routes>
     </Suspense>
   );

@@ -216,14 +216,10 @@ const FormularioEmpresa = () => {
 
                 {idEmpresa !== '0' && (
                     <>
-                        <Row className="d-flex justify-content-end mb-3">
-                            <Button
+                        <Row  className="row-boton">
+                            <Button className="btn-anadir-algo"
                                 onClick={() => navigate(`/FormularioSucursal/0/${idEmpresa}`)}
-                                style={{
-                                    backgroundColor: "#81c784",
-                                    color: "white",
-                                    border: "none",
-                                }}
+                                
                             >
                                 Agregar Sucursal
                             </Button>

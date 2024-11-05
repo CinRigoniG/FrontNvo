@@ -67,8 +67,9 @@
     align-items: center; /* Centrado verticalmente */
     margin-top: 20px; /* Espaciado superior */
 }
-.btn-anadir-domicilio {
+.btn-anadir-algo {
     margin-top: 20px;
+    margin-bottom: 5px;
     width: 200px; /* Ancho más angosto */
     background-color: #75bbcd  !important; 
     color: white; /* Texto blanco */
@@ -78,7 +79,7 @@
     
 }
 
-.btn-anadir-domicilio:hover {
+.btn-anadir-algo:hover {
     background-color: #45b2ce  !important;
 }
 .btn-eliminaDom{
