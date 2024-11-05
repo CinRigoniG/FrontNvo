@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import SucursalService from "../../services/SucursalService";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Sucursal } from "../../entities/Sucursal";
 
 const DetalleSucursal = () => {

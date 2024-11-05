@@ -17,6 +17,7 @@ const PantallaAdmin = () => {
           <FontAwesomeIcon icon={faUserCog} className="icono-bienvenida" />
           Bienvenido, Administrador
         </h1>
+        <h6 className="subtitulo">Aquí podras encontrar todas las secciones del sistema y poder acceder a cada una de ellas para realizar los cambios que desees!!</h6>
       </div>
       <div className="tarjetas-container">
         <div className="tarjeta" style={{ backgroundColor: "#FFF8B0" }}>
@@ -24,8 +25,7 @@ const PantallaAdmin = () => {
           {/* Color amarillo */}
           <Link to="/empresaSucursal" className="tarjeta-link">
             <FontAwesomeIcon icon={faBuilding} className="icono-tarjeta" />{" "}
-            {/* Icono de edificio para representar la empresa */}
-            <h3>Grilla de Empresa</h3> {/* Título actualizado */}
+            <h3>Grilla de Empresa</h3> 
             <p className="descripcion">
               Administra tus sucursales: visualiza, edita, elimina y crea nuevas
               sucursales para tu empresa.

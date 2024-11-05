@@ -1,15 +1,15 @@
 .bienvenida-container {
-  background-color: #a1ffeb; /* Color de fondo amarillo claro */
+  background-color: #f7f7f7; /* Color de fondo gris claro */
   padding: 20px; /* Espaciado */
   border-radius: 10px; /* Bordes redondeados */
   text-align: center; /* Alinear el texto al centro */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
   animation: fadeIn 1s; /* Animación de aparición */
 }
 
 .bienvenida-titulo {
-  color: #2d5353; /* Color del texto */
-  font-family: Arial, sans-serif; /* Fuente */
+  color: #333333; /* Color del texto gris oscuro */
+  font-family: 'EB Garamond', serif; /* Cambiar a una fuente más elegante */
   font-size: 36px; /* Tamaño de la fuente */
   margin: 0; /* Eliminar margen */
 }
@@ -18,6 +18,10 @@
   margin-right: 10px; /* Espacio entre el ícono y el texto */
 }
 
+.subtitulo{
+  font-size: 20px;
+  color: #49383894;
+}
 /* Animación de aparición */
 @keyframes fadeIn {
   from {
