@@ -1,0 +1,38 @@
+
+h2 {
+    font-family: 'EB Garamond', serif; /* Cambia la fuente si deseas */
+    color: #5F4B8A; /* Un color lila más oscuro para el título */
+    text-align: center; /* Centrar el texto */
+    font-size: 2.5rem; /* Tamaño más grande */
+    margin-bottom: 20px; /* Espaciado inferior */
+  }
+  .btn-modificar {
+    background-color: #98FB98; /* Verde pastel */
+    border: none; /* Sin borde */
+    color: #333; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold; /* Negrita */
+    transition: background-color 0.3s; /* Transición suave */
+  }
+  
+  .btn-modificar:hover {
+    background-color: #7FBF7F; /* Verde pastel más oscuro al pasar el mouse */
+  }  
+.btn-volver {
+    background-color: #7e867e; /* Verde pastel */
+    border: none; /* Sin borde */
+    color: #333; /* Color del texto */
+    padding: 6px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold; /* Negrita */
+    transition: background-color 0.3s; /* Transición suave */
+  }
+  
+  .btn-volver:hover {
+    background-color: #585f58; /* Verde pastel más oscuro al pasar el mouse */
+    color: #333;
+  }
+  
+
+  

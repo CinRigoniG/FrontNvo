@@ -1,4 +1,10 @@
 /* Estilo para el InputGroup */
+
+body {
+    background-color: #f8f9fa; /* Fondo suave */
+    font-family: 'Arial', sans-serif;
+  }
+  
 .mb-3 {
     display: flex;
     align-items: center;
@@ -195,7 +201,57 @@
     text-decoration: underline; /* Subrayar al pasar el mouse */
 }
 
+/* Grillas.css */
+.card-img-container {
+    display: flex; /* Habilita Flexbox en el contenedor de la imagen */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    height: 100%; /* Asegúrate de que ocupe toda la altura del contenedor */
+  }
+  
+  .card-img {
+    width: 400px; /* Ajusta el ancho de la imagen */
+    max-height: 200px; /* Limita la altura máxima de la imagen */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    border-radius: 8px; /* Bordes redondeados para un mejor diseño */
+  }
+  
 
+.card {
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  .card-title {
+    font-size: 1.5rem; /* Aumentar tamaño del título */
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #6c757d; /* Texto gris */
+  }
+
+  /* Grillas.css */
+  .btn-ver-sucursales {
+    background-color: #f7e7a1; /* Amarillo pastel */
+    color: rgb(20, 19, 19); /* Color de texto oscuro para contraste */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 6px 10px; /* Padding interno */
+    font-weight: bold; /* Texto en negrita */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+.btn-ver-sucursales:hover {
+    background-color: #f0c36d; /* Amarillo más oscuro al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+  
+  .tituloEmpresa{
+    font-size: 10 px;
+    color: #275f4e;
+  }
 
 /* Responsive */
 @media (max-width: 768px) {
