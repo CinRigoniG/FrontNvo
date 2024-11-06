@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Form, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Empresa from "../../entities/Empresa";
@@ -9,10 +9,9 @@ import "./Grillas.css";
 const EmpresaSucursal = () => {
   const navigate = useNavigate();
   const [empresas, setEmpresas] = useState<Empresa[]>([]);
+  const [busqueda, setBusqueda] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [empresaAEliminar, setEmpresaAEliminar] = useState<Empresa | null>(
-    null
-  );
+  const [empresaAEliminar, setEmpresaAEliminar] = useState<Empresa | null>(null);
   const empresaService = new EmpresaService();
   const url = import.meta.env.VITE_API_URL;
 
@@ -55,8 +54,23 @@ const EmpresaSucursal = () => {
     navigate(`/formularioEmpresa/${idEmpresa}`);
   };
 
+  const filtrarPorBusqueda = (empresa: Empresa) => {
+    return empresa.nombre.toLowerCase().includes(busqueda.toLowerCase());
+  };
+
   return (
     <Container fluid className="mt-4">
+      {/* Filtro de búsqueda */}
+      <InputGroup className="mb-3" style={{ width: "100%", justifyContent: "center" }}>
+        <Form.Control
+          type="text"
+          placeholder="Buscar por nombre de empresa..."
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+          className="filtro-busqueda"
+        />
+      </InputGroup>
+
       <Row className="row-centrado">
         <Button
           variant="success"
@@ -69,7 +83,7 @@ const EmpresaSucursal = () => {
 
       <Row>
         <Col md={6}>
-          {empresas.map((empresa) => (
+          {empresas.filter(filtrarPorBusqueda).map((empresa) => (
             <Card className="mb-4" key={empresa.id}>
               <Row>
                 <Col md={4}>

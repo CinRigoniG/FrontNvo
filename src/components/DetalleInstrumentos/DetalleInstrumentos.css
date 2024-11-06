@@ -104,6 +104,7 @@ button:hover {
 
 /* Botón success */
 .btn-pdf {
+  border: none;
   background-color: #917cb9;
   color: white;
 }

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Pedido from "../../entities/Pedido";
 import PedidoService from "../../services/PedidoService";
 import { useUser } from "../../context/UserContext";
-import { Button, Modal, Row, Table } from "react-bootstrap";
+import { Button, Form, InputGroup, Modal, Row, Table } from "react-bootstrap";
 import { Roles } from "../../entities/Enums/Roles";
-import { Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import ModalFechas from "../Modales/ModalExcel";
 import AfipService from "../../services/Afip/AfipService";
@@ -27,6 +27,7 @@ const GrillaPedidos = () => {
   const pedidoService = new PedidoService();
   const afipService = AfipService();
   const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto
+  const [busqueda, setBusqueda] = useState("");
 
   const url = import.meta.env.VITE_API_URL;
 
@@ -106,110 +107,124 @@ const GrillaPedidos = () => {
     setFacturacionResponse(null);
   };
 
-  return (
-    <>
-      <Row className="row-centrado" style={{ marginLeft: "10px" }}>
-        {usuarioL?.nombreRol === Roles.ADMIN && (
-          <Button onClick={abrirModal} className="botones-grilla" >
-            Generar excel
-          </Button>
-        )}
-      </Row>
-      <Table className="tabla-grilla" striped bordered hover>
-        <thead className="grilla">
-          <tr>
-            <th>ID</th>
-            <th>Fecha</th>
-            <th>Usuario</th>
-            <th>Total pedido</th>
-            {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
-            {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
-            {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
-            {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
+  const filtrarPorBusqueda = (pedido: Pedido) => {
+    return pedido.usuario?.nombre.toLowerCase().includes(busqueda.toLowerCase());
+  };
+ return (
+  <>
+    <InputGroup className="mb-3" style={{ width: "100%", justifyContent: "center" }}>
+      <Form.Control
+        type="text"
+        placeholder="Nombre de Usuario..."
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+        className="filtro-busqueda"
+      />
+    </InputGroup>
+    
+    <Row className="row-centrado" style={{ marginLeft: "10px" }}>
+      {usuarioL?.nombreRol === Roles.ADMIN && (
+        <Button onClick={abrirModal} className="botones-grilla">
+          Generar excel
+        </Button>
+      )}
+    </Row>
+
+    <Table className="tabla-grilla" striped bordered hover>
+      <thead className="grilla">
+        <tr>
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Total pedido</th>
+          {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
+          {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
+          {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
+          {usuarioL?.nombreRol === Roles.ADMIN && <th></th>}
+        </tr>
+      </thead>
+      <tbody>
+        {pedidos.filter(filtrarPorBusqueda).map((pedido: Pedido, index) => (
+          <tr key={index}>
+            <td>{pedido.id}</td>
+            <td>{new Date(pedido.fecha).toLocaleDateString()}</td>
+            <td>{pedido.usuario?.nombre || "Sin usuario"}</td>
+            <td>{pedido.totalPedido}</td>
+            <td>
+              <Link to={`/detallePedido/${pedido.id}`}>
+                <i className="bi bi-eye icono-detalle"></i>
+              </Link>
+            </td>
+            {usuarioL?.nombreRol === Roles.ADMIN && (
+              <>
+                <td>
+                  <Link to={`/formularioPedido/${pedido.id}`}>
+                    <i className="bi bi-pencil icono-editar"></i>
+                  </Link>
+                </td>
+                <td>
+                  <i
+                    className="bi bi-trash icono-borrar"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => abrirModalEliminar(pedido)}
+                  ></i>
+                </td>
+                <td>
+                  <Button
+                    className="BotonFacturar"
+                    onClick={() => {
+                      setPedidoFacturar(pedido);
+                      facturar();
+                    }}
+                  >
+                    <FaPrint />
+                  </Button>
+                </td>
+              </>
+            )}
           </tr>
-        </thead>
-        <tbody>
-          {pedidos.map((pedido: Pedido, index) => (
-            <tr key={index}>
-              <td>{pedido.id}</td>
-              <td>{new Date(pedido.fecha).toLocaleDateString()}</td>
-              <td>{pedido.usuario?.nombre || "Sin usuario"}</td>
-              <td>{pedido.totalPedido}</td>
-              <td>
-                <Link to={`/detallePedido/${pedido.id}`}>
-                  <i className="bi bi-eye icono-detalle"></i>
-                </Link>
-              </td>
-              {usuarioL?.nombreRol === Roles.ADMIN && (
-                <>
-                  <td>
-                    <Link to={`/formularioPedido/${pedido.id}`}>
-                      <i className="bi bi-pencil icono-editar"></i>
-                    </Link>
-                  </td>
-                  <td>
-                    <i
-                      className="bi bi-trash icono-borrar"
-                      style={{ cursor: "pointer" }}
-                      onClick={() => abrirModalEliminar(pedido)}
-                    ></i>
-                  </td>
-                  <td>
-                    <Button
-                      className="BotonFacturar"
-                      onClick={() => {
-                        setPedidoFacturar(pedido);
-                        facturar();
-                      }}
-                    >
-                      <FaPrint />
-                    </Button>
-                  </td>
-                </>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+        ))}
+      </tbody>
+    </Table>
 
-      <ModalConfirmacion
-        isOpen={modalIsOpen}
-        onRequestClose={cerrarModalEliminar}
-        onConfirm={confirmarEliminar}
-        contentLabel="Confirmar Eliminación"
-      />
+    <ModalConfirmacion
+      isOpen={modalIsOpen}
+      onRequestClose={cerrarModalEliminar}
+      onConfirm={confirmarEliminar}
+      contentLabel="Confirmar Eliminación"
+    />
 
-      <ModalFechas
-        show={showModal}
-        onHide={cerrarModal}
-        fechaDesde={fechaDesde}
-        fechaHasta={fechaHasta}
-        setFechaDesde={setFechaDesde}
-        setFechaHasta={setFechaHasta}
-        generarExcel={generarExcel}
-      />
+    <ModalFechas
+      show={showModal}
+      onHide={cerrarModal}
+      fechaDesde={fechaDesde}
+      fechaHasta={fechaHasta}
+      setFechaDesde={setFechaDesde}
+      setFechaHasta={setFechaHasta}
+      generarExcel={generarExcel}
+    />
 
-      {/* Modal de Facturación */}
-      <Modal show={modalFacturacion} onHide={cerrarModalFacturacion}>
-        <Modal.Header closeButton>
-          <Modal.Title>Factura emitida</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {facturacionResponse && (
-            <>
-              <p>CAE: {facturacionResponse.cae}</p>
-              <p>Vencimiento: {facturacionResponse.vencimiento}</p>
-            </>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={cerrarModalFacturacion}>
-            Cerrar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  );
-};
-
+    <Modal show={modalFacturacion} onHide={cerrarModalFacturacion}>
+      <Modal.Header closeButton>
+        <Modal.Title>Detalles de Facturación</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {facturacionResponse ? (
+          <div>
+            <p>CAE: {facturacionResponse.cae}</p>
+            <p>Vencimiento: {facturacionResponse.vencimiento}</p>
+          </div>
+        ) : (
+          "Generando factura..."
+        )}
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={cerrarModalFacturacion}>
+          Cerrar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </>
+);
+}
 export default GrillaPedidos;
