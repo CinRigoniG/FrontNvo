@@ -21,7 +21,7 @@ const DondeEstamos = () => {
                         <div className="card-body">
                             <h4 className="card-title">Sucursal Central</h4>
                             <p className="card-text">
-                                Dirección: Avenida San Martín 1000, Centro, Mendoza.
+                                Dirección: Avenida San Martín 1000. Centro. Mendoza.
                             </p>
                             <div className="map-container">
                                 <iframe
@@ -44,7 +44,7 @@ const DondeEstamos = () => {
                         <div className="card-body">
                             <h4 className="card-title">Sucursal Los Corralitos</h4>
                             <p className="card-text">
-                                Dirección: Callejón Lemos 1300, Los Corralitos, Guaymallén. 
+                                Dirección: Callejón Lemos 1300. Los Corralitos - Guaymallén. 
                             </p>
                             <div className="map-container">
                                 <iframe
@@ -67,7 +67,7 @@ const DondeEstamos = () => {
                 <div className="contact-bg"> 
                     <p className="contact-text"><strong>Teléfono:</strong> (123) 456-7890</p>
                     <p className="contact-text"><strong>Email:</strong> musicShop@gmail.com</p>
-                    <a href="/contacto" className="btn btn-custom">Contáctanos</a>
+                    <a href="/contacto" className="btn-contacto">Contáctanos</a>
                 </div>
             </div>
         </div>

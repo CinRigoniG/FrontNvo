@@ -50,18 +50,18 @@
     color: #6a4c93; /* Color de texto lila oscuro para que contraste */
 }
 
-.btn-custom {
+.btn-contacto {
     background-color: #8a63b2; /* Color lilas del botón */
     color: white; /* Color del texto del botón */
     border: none; /* Sin borde */
     border-radius: 5px; /* Esquinas redondeadas del botón */
-    padding: 10px 20px; /* Espaciado interno del botón */
+    padding: 7px 20px; /* Espaciado interno del botón */
     font-size: 1rem; /* Tamaño de fuente del botón */
     text-decoration: none; /* Sin subrayado */
     transition: background-color 0.3s; /* Transición suave al pasar el mouse */
 }
 
-.btn-custom:hover {
+.btn-contacto:hover {
     background-color: #6a4c93; /* Color al pasar el mouse */
 }
 
@@ -127,7 +127,7 @@
         height: 180px; /* Reducir aún más la altura del mapa */
     }
 
-    .btn-custom {
+    .btn-contacto{
         font-size: 0.9rem; /* Reducir el tamaño del botón en pantallas muy pequeñas */
         padding: 8px 16px; /* Reducir el padding del botón */
     }
