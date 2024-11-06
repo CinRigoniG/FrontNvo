@@ -19,9 +19,9 @@ const DondeEstamos = () => {
                 <div className="col-md-6 d-flex align-items-stretch">
                     <div className="card equal-card">
                         <div className="card-body">
-                            <h4 className="card-title">Sucursal Mendoza Centro</h4>
+                            <h4 className="card-title">Sucursal Central</h4>
                             <p className="card-text">
-                                Dirección: Avenida San Martín 1000, Centro, Mendoza. Código Postal: 5500
+                                Dirección: Avenida San Martín 1000, Centro, Mendoza.
                             </p>
                             <div className="map-container">
                                 <iframe
@@ -42,9 +42,9 @@ const DondeEstamos = () => {
                 <div className="col-md-6 d-flex align-items-stretch">
                     <div className="card equal-card">
                         <div className="card-body">
-                            <h4 className="card-title">Sucursal Los Corralitos, Guaymallén</h4>
+                            <h4 className="card-title">Sucursal Los Corralitos</h4>
                             <p className="card-text">
-                                Dirección: Callejón Lemos 1300, Los Corralitos, Guaymallén. Código Postal: 5519
+                                Dirección: Callejón Lemos 1300, Los Corralitos, Guaymallén. 
                             </p>
                             <div className="map-container">
                                 <iframe
