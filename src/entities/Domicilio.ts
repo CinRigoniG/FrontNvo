@@ -1,4 +1,4 @@
-import Persona from "./Persona";
+
 
 export default class Domicilio {
     id: number = 0;
@@ -11,5 +11,4 @@ export default class Domicilio {
     localidad : string = '';
     provincia : string = '';
     pais : string = '';
-    persona : Persona = new Persona();
 }

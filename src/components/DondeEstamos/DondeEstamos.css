@@ -64,3 +64,71 @@
 .btn-custom:hover {
     background-color: #6a4c93; /* Color al pasar el mouse */
 }
+
+/* Estilos para las tarjetas */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para asegurar que las tarjetas tengan la misma altura */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que la tarjeta se estire para llenar el espacio */
+}
+
+.equal-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Hacer las tarjetas responsivas */
+@media (max-width: 768px) {
+    .icon-globe {
+        font-size: 1.5rem; /* Reducir el tamaño del icono en pantallas más pequeñas */
+    }
+
+    .title {
+        font-size: 1.2rem; /* Reducir el tamaño del título en pantallas más pequeñas */
+    }
+
+    .description {
+        font-size: 0.9rem; /* Reducir el tamaño de la descripción en pantallas pequeñas */
+    }
+
+    .card {
+        margin-bottom: 10px; /* Reducir el espacio entre tarjetas en pantallas pequeñas */
+    }
+
+    .map-iframe {
+        height: 200px; /* Reducir la altura del mapa en pantallas más pequeñas */
+    }
+
+    .contact-info {
+        margin-top: 10px; /* Reducir el espacio superior en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 1rem; /* Ajustar aún más el tamaño de la fuente del título */
+    }
+
+    .card {
+        margin-bottom: 15px; /* Ajustar el margen entre las tarjetas */
+    }
+
+    .map-iframe {
+        height: 180px; /* Reducir aún más la altura del mapa */
+    }
+
+    .btn-custom {
+        font-size: 0.9rem; /* Reducir el tamaño del botón en pantallas muy pequeñas */
+        padding: 8px 16px; /* Reducir el padding del botón */
+    }
+}
