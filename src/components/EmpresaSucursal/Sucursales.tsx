@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Container, Card, Row, Col, Button } from 'react-bootstrap';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Container, Card, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import SucursalService from '../../services/SucursalService';
 import { Sucursal } from '../../entities/Sucursal';
-import './Sucursales.css'; 
+import './Sucursales.css';
 
 const Sucursales = () => {
   const { idEmpresa } = useParams<{ idEmpresa: string }>();
@@ -41,6 +41,16 @@ const Sucursales = () => {
                   <Card.Title>{sucursal.nombre}</Card.Title>
                   <Card.Text>Horario: {sucursal.horarioApertura} - {sucursal.horarioCierre}</Card.Text>
                   <Card.Text>Número de sucursal: {sucursal.numeroSucursal}</Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroup.Item>
+                    <Link to="/productos" style={{ textDecoration: 'none', color: 'inherit' }}>Productos</Link>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Link to="/sucursales" style={{ textDecoration: 'none', color: 'inherit' }}>Sucursales</Link>
+                  </ListGroup.Item>
+                </ListGroup>
+                <Card.Body>
                   <Button className="btn-modificar" onClick={() => editarSucursal(sucursal.id!)}>
                     Modificar Sucursal
                   </Button>
