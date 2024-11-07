@@ -52,10 +52,10 @@
   color: var(--negro);
   font-style: italic;
   text-align: center;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100px;
 }
 
 blockquote {
@@ -141,14 +141,62 @@ blockquote {
   text-align: center;
 }
 
+.marcas-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.marcas-section h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.marcas-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.marca-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 120px;
+  text-align: center;
+  transition: transform 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.marca-card:hover {
+  transform: scale(1.05);
+}
+
+.marca-card img {
+  max-width: 100%;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.marca-card span {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: #555;
+}
+
 .home-footer {
   margin-top: 30px;
-  padding: 10px 0; /* Corregido para evitar el error */
+  padding: 10px 0;
   background-color: var(--Header);
-  display: flex; /* Activamos Flexbox */
-  align-items: center; /* Centramos verticalmente */
-  justify-content: center; /* Centramos horizontalmente */
-  height: 50px; /* Asegura una altura constante */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
 }
 
 .home-footer p {
@@ -156,17 +204,8 @@ blockquote {
   color: var(--blanco);
 }
 
-.home-footer p {
-  color: var(--blanco);
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
-  .quote {
-    height: auto;
-    padding: 15px;
-  }
-
   .home-header h1 {
     font-size: 2.5rem;
   }
@@ -184,6 +223,20 @@ blockquote {
     width: 90%;
     margin-bottom: 20px;
   }
+
+  .Frase {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .marcas-cards {
+    gap: 1rem;
+  }
+
+  .marca-card {
+    width: 90px;
+    padding: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -197,5 +250,18 @@ blockquote {
 
   .card-home img {
     height: 150px;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .Frase {
+    font-size: 1.2rem;
+  }
+
+  .marca-card {
+    width: 80px;
   }
 }

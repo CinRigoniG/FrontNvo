@@ -60,6 +60,19 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="marcas-section">
+        <h2>Marcas de Confianza</h2>
+        <div className="marcas-cards">
+          <div className="marca-card"><img src="/images/alhambra.png" alt="Alhambra" /><span>Alhambra</span></div>
+          <div className="marca-card"><img src="/images/boss.png" alt="Boss" /><span>Boss</span></div>
+          <div className="marca-card"><img src="/images/Martin & C.O.png" alt="C.F. Martin & Co." /><span>C.F. Martin & Co.</span></div>
+          <div className="marca-card"><img src="/images/d'Addario.png" alt="D'Addario" /><span>D'Addario</span></div>
+          <div className="marca-card"><img src="/images/yamaha.png" alt="Yamaha" /><span>Yamaha</span></div>
+          <div className="marca-card"><img src="/images/Roland.png" alt="Roland" /><span>Roland</span></div>
+
+        </div>
+      </section>
+
       <h2 className="Frase">
         "Tu pasión por la música merece lo mejor. Ven y explora nuestra
         selección de instrumentos de alta calidad, donde cada compra se
