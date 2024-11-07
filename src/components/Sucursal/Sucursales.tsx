@@ -28,9 +28,9 @@ const Sucursales = () => {
     navigate(-1); // Navega a la pantalla anterior
   };
 
-/*   const detalleSucursal = (idSucursal: number) => {
-    navigate(`/detalleSucursal/${idSucursal}`);
-  }; */
+  /*   const detalleSucursal = (idSucursal: number) => {
+      navigate(`/detalleSucursal/${idSucursal}`);
+    }; */
 
 
   return (
@@ -58,7 +58,7 @@ const Sucursales = () => {
                   <Button className="btn-modificar" onClick={() => editarSucursal(sucursal.id!)}>
                     Modificar Sucursal
                   </Button>
-                 {/*  <Button className="btn-modificar" onClick={() => detalleSucursal(sucursal.id!)}>
+                  {/*  <Button className="btn-modificar" onClick={() => detalleSucursal(sucursal.id!)}>
                     ver
                   </Button> */}
                 </Card.Body>
