@@ -7,9 +7,9 @@ h2 {
     margin-bottom: 20px; /* Espaciado inferior */
   }
   .btn-modificar {
-    background-color: #98FB98; /* Verde pastel */
+    background-color: #98FB98 !important; /* Verde pastel */
     border: none; /* Sin borde */
-    color: #333; /* Color del texto */
+    color: #333 !important; /* Color del texto */
     padding: 10px 20px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
     font-weight: bold; /* Negrita */
@@ -17,12 +17,12 @@ h2 {
   }
   
   .btn-modificar:hover {
-    background-color: #7FBF7F; /* Verde pastel más oscuro al pasar el mouse */
+    background-color: #7FBF7F !important; /* Verde pastel más oscuro al pasar el mouse */
   }  
 .btn-volver {
-    background-color: #7e867e; /* Verde pastel */
+    background-color: #7e867e !important; /* Verde pastel */
     border: none; /* Sin borde */
-    color: #333; /* Color del texto */
+    color: #333 !important; /* Color del texto */
     padding: 6px 10px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
     font-weight: bold; /* Negrita */
@@ -30,7 +30,7 @@ h2 {
   }
   
   .btn-volver:hover {
-    background-color: #585f58; /* Verde pastel más oscuro al pasar el mouse */
+    background-color: #585f58 !important; /* Verde pastel más oscuro al pasar el mouse */
     color: #333;
   }
   
