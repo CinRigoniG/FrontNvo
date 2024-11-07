@@ -102,7 +102,6 @@ const AppRoutes = () => {
           path="/formularioSucursal/:idSucursal/"
           element={<FormularioSucursal />}
         />
-
       <Route
           path="/detalleSucursal/:idSucursal/"
           element={<DetalleSucursal />}
