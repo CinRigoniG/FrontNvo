@@ -16,12 +16,12 @@ import GrillaDetallePedido from "../components/Grillas/GrillaDetallePedido";
 import FormularioUsuario from "../components/Formularios/FormularioUsuario";
 import FormularioPersona from "../components/Formularios/FormularioPersona";
 import PantallaAdmin from "../components/PantallaAdmin/PantallaAdmin";
-import Promociones from "../components/Promociones/Promociones";
 import FormularioEmpresa from "../components/Formularios/FormularioEmpresa";
 import FormularioSucursal from "../components/Formularios/FormularioSucursal";
 import Sucursales from "../components/Sucursal/Sucursales";
 import GrillaEmpresa from "../components/Grillas/GrillaEmpresa";
 import DetalleSucursal from "../components/Sucursal/DetalleSucursal";
+import GrillaPromociones from "../components/Grillas/GrillaPromociones";
 
 const AppRoutes = () => {
   const DondeEstamos = lazy(
@@ -45,14 +45,6 @@ const AppRoutes = () => {
           element={
             <RutaPrivada>
               <Instrumentos />
-            </RutaPrivada>
-          }
-        />
-        <Route
-          path="/promociones"
-          element={
-            <RutaPrivada>
-              <Promociones />
             </RutaPrivada>
           }
         />
@@ -99,14 +91,14 @@ const AppRoutes = () => {
           element={<FormularioEmpresa />}
         />
         <Route
-          path="/formularioSucursal/:idSucursal/"
+          path="/formularioSucursal/:idSucursal"
           element={<FormularioSucursal />}
         />
-
-      <Route
-          path="/detalleSucursal/:idSucursal/"
+        <Route
+          path="/detalleSucursal/:idSucursal"
           element={<DetalleSucursal />}
-        />
+        />      
+        <Route path="/grillaPromociones/:idSucursal" element={<GrillaPromociones />}/>
       </Routes>
     </Suspense>
   );
