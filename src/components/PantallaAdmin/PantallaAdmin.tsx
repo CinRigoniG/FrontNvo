@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTable,
   faList,
   faUser,
   faBuilding,
@@ -31,18 +30,6 @@ const PantallaAdmin = () => {
               sucursales para tu empresa.
             </p>{" "}
             {/* Descripción actualizada */}
-          </Link>
-        </div>
-
-        {/* Tarjeta para Grilla Instrumentos */}
-        <div className="tarjeta" style={{ backgroundColor: "#b3e0f7" }}>
-          <Link to="/grillaInstrumentos" className="tarjeta-link">
-            <FontAwesomeIcon icon={faTable} className="icono-tarjeta" />
-            <h3>Grilla Instrumentos</h3>
-            <p className="descripcion">
-              Aquí podrás ver tus instrumentos, editar, eliminar o crear uno
-              nuevo.
-            </p>
           </Link>
         </div>
         {/* Tarjeta para Grilla Pedidos */}

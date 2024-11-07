@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button, Form, InputGroup } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Empresa from "../../entities/Empresa";
@@ -9,7 +9,7 @@ import "./Grillas.css";
 const EmpresaSucursal = () => {
   const navigate = useNavigate();
   const [empresas, setEmpresas] = useState<Empresa[]>([]);
-  const [busqueda, setBusqueda] = useState("");
+  const [busqueda] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [empresaAEliminar, setEmpresaAEliminar] = useState<Empresa | null>(null);
   const empresaService = new EmpresaService();
@@ -46,10 +46,6 @@ const EmpresaSucursal = () => {
     }
   };
 
-  const agregarEmpresa = () => {
-    navigate("/formularioEmpresa/0");
-  };
-
   const editarEmpresa = (idEmpresa: number) => {
     navigate(`/formularioEmpresa/${idEmpresa}`);
   };
@@ -60,31 +56,10 @@ const EmpresaSucursal = () => {
 
   return (
     <Container fluid className="mt-4">
-      {/* Filtro de búsqueda */}
-      <InputGroup className="mb-3" style={{ width: "100%", justifyContent: "center" }}>
-        <Form.Control
-          type="text"
-          placeholder="Buscar por nombre de empresa..."
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-          className="filtro-busqueda"
-        />
-      </InputGroup>
-
-      <Row className="row-centrado">
-        <Button
-          variant="success"
-          onClick={agregarEmpresa}
-          className="botones-grilla"
-        >
-          Agregar empresa
-        </Button>
-      </Row>
-
-      <Row>
-        <Col md={6}>
+      <Row className="justify-content-center">
+        <Col md={8}>
           {empresas.filter(filtrarPorBusqueda).map((empresa) => (
-            <Card className="mb-4" key={empresa.id}>
+            <Card className="mb-4 tarjeta-centrada" key={empresa.id}>
               <Row>
                 <Col md={4}>
                   <div className="card-img-container">
