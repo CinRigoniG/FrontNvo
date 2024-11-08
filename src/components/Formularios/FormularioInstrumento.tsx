@@ -12,8 +12,11 @@ import {
   FormLabel,
   Row,
   Col,
+  FormSelect,
 } from "react-bootstrap";
 import { useUser } from "../../context/UserContext";
+import { Sucursal } from "../../entities/Sucursal";
+import SucursalService from "../../services/SucursalService";
 
 const FormularioInstrumento = () => {
   const navigate = useNavigate();
@@ -23,9 +26,11 @@ const FormularioInstrumento = () => {
     new Instrumento()
   );
   const [categorias, setCategorias] = useState<Categoria[]>([]);
+  const [sucursales, setSucursales] = useState<Sucursal[]>([]);
   const [txtValidacion, setTxtValidacion] = useState<string>("");
   const instrumentoService = new InstrumentoService();
   const categoriaService = new CategoriaService();
+  const sucursalService = new SucursalService();
   const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto
   const url = import.meta.env.VITE_API_URL;
 
@@ -34,6 +39,7 @@ const FormularioInstrumento = () => {
     const fetchData = async () => {
       await getCategorias();
       await getInstrumento();
+      await getSucursales();
     };
     fetchData();
   }, [idInstrumento]);
@@ -45,6 +51,14 @@ const FormularioInstrumento = () => {
       console.error("Error al obtener las categorías:", error);
     }
   };
+
+  const getSucursales = async () => {
+    try{
+      setSucursales(await sucursalService.getAll(url + 'sucursal'))
+    }catch (error) {
+      console.error("Error al obtener las sucursales:", error);
+    }
+  }
 
   const getInstrumento = async () => {
     if (instrumentoId > 0) {
@@ -266,7 +280,7 @@ const FormularioInstrumento = () => {
                   categoria: categoriaSeleccionada,
                 });
               } else {
-                console.error("No se encontró la categoría seleccionada");
+                console.error("No se encontró la categoría seleccionada.");
               }
             }}
           >
@@ -277,6 +291,34 @@ const FormularioInstrumento = () => {
               </option>
             ))}
           </Form.Select>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel className="text-center">Sucursal</FormLabel>
+          <FormSelect
+            id="selectSucursal"
+            value={instrumentoObjeto.sucursal?.id || ""}
+            onChange={(e) => {
+              const sucursalId = parseInt(e.target.value);
+              const sucursalSeleccionada = sucursales.find(
+                (sucursal) => sucursal.id === sucursalId
+              );
+              if(sucursalSeleccionada){
+                setInstrumentoObjeto({
+                  ...instrumentoObjeto,
+                  sucursal: sucursalSeleccionada
+                });
+              }else{
+                console.log("No se encontró la sucursal seleccionada.")
+              }
+            }}
+          >
+            <option value="">Seleccione una sucursal</option>
+            {sucursales.map((sucursal) => (
+              <option key={sucursal.id} value={sucursal.id}>
+                {sucursal.nombre}
+              </option>
+            ))}
+          </FormSelect>
         </FormGroup>
         <FormGroup>
           <p style={{ color: "red" }}>{txtValidacion}</p>
@@ -297,7 +339,7 @@ const FormularioInstrumento = () => {
           </Col>
           <Col md={6} className="d-flex justify-content-center">
             <Button
-              onClick={() => navigate("/grillaInstrumentos")}
+              onClick={() => navigate(-1)}
               style={{
                 width: "150px",
                 backgroundColor: "#9575cd",

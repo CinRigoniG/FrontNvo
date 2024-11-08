@@ -1,5 +1,6 @@
 import { ChangeEventHandler } from "react";
 import Categoria from "./Categoria";
+import { Sucursal } from "./Sucursal";
 
 export default class Instrumento{
     id:number = 0;
@@ -13,4 +14,5 @@ export default class Instrumento{
     descripcion:string = "";
     addCarrito?:ChangeEventHandler;
     categoria: Categoria = new Categoria();
+    sucursal: Sucursal = new Sucursal();
 }

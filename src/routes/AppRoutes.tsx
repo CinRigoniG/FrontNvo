@@ -54,7 +54,7 @@ const AppRoutes = () => {
         {/* Rutas disponibles solo si el usuario es ADMIN */}
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
           <Route path="/pantallaAdmin" element={<PantallaAdmin />} />
-          <Route path="/grillaInstrumentos" element={<GrillaInstrumentos />} />
+          <Route path="/grillaInstrumentos/:idSucursal" element={<GrillaInstrumentos />} />
           <Route
             path="/formularioInstrumento/:idInstrumento"
             element={<FormularioInstrumento />}

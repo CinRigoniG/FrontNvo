@@ -6,11 +6,14 @@ import InstrumentoService from "../../services/InstrumentoService";
 import CategoriaService from "../../services/CategoriaService";
 import { useUser } from "../../context/UserContext";
 import { Roles } from "../../entities/Enums/Roles";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ModalConfirmacion from "../Modales/ModalConfirmacion";
 import "./Grillas.css";
+import SucursalService from "../../services/SucursalService";
 
 const GrillaInstrumentos = () => {
+  const { idSucursal } = useParams();
+  const sucursalId = idSucursal ? parseInt(idSucursal, 10) : 0;
   const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<
@@ -21,6 +24,7 @@ const GrillaInstrumentos = () => {
   const [instrumentoAEliminar, setInstrumentoAEliminar] =
     useState<Instrumento | null>(null);
   const instrumentoService = new InstrumentoService();
+  const sucursalService = new SucursalService();
   const categoriaService = new CategoriaService();
   const { usuarioL } = useUser(); // Obtener el usuario logueado del contexto
   const url = import.meta.env.VITE_API_URL;
@@ -28,9 +32,10 @@ const GrillaInstrumentos = () => {
   useEffect(() => {
     const fetchData = async () => {
       console.log(usuarioL)
-      const instrumentosData = await instrumentoService.getAll(
-        url + "instrumento"
-      );
+      const sucursalData = await sucursalService.get(url + 'sucursal', sucursalId)
+      console.log(sucursalData)
+      const instrumentosData = await instrumentoService.getBySucursalId(url + 'instrumento',sucursalId);
+      console.log(instrumentosData)
       setInstrumentos(instrumentosData);
     };
     fetchData();

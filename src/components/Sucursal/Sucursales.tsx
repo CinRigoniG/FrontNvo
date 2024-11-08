@@ -48,10 +48,10 @@ const Sucursales = () => {
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                   <ListGroup.Item>
-                    <Link to="/productos" style={{ textDecoration: 'none', color: 'inherit' }}>Productos</Link>
+                    <Link to={`/grillaInstrumentos/${sucursal.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>Productos</Link>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <Link to="/sucursales" style={{ textDecoration: 'none', color: 'inherit' }}>Sucursales</Link>
+                    <Link to="/sucursales" style={{ textDecoration: 'none', color: 'inherit' }}>Promociones</Link>
                   </ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
